@@ -49,9 +49,6 @@ body {
 ::-webkit-scrollbar-track { background: #0D0B09; }
 ::-webkit-scrollbar-thumb { background: #B8922C; }
 
-/* ── Custom cursor (enabled via JS adding .custom-cursor to body) ── */
-.custom-cursor *, .custom-cursor *::before, .custom-cursor *::after { cursor: none !important; }
-
 /* ── Grain ── */
 .grain {
   pointer-events: none;
@@ -62,26 +59,6 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
 }
-
-/* ── Cursor element ── */
-.cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 14px; height: 14px;
-  pointer-events: none;
-  z-index: 99999;
-  mix-blend-mode: difference;
-}
-.cursor::before,
-.cursor::after {
-  content: '';
-  position: absolute;
-  background: #F8F5EF;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-.cursor::before { width: 1px; height: 14px; }
-.cursor::after  { width: 14px; height: 1px; }
 
 /* ── Rule ── */
 .rule { height: 1px; background: currentColor; opacity: 0.15; }
