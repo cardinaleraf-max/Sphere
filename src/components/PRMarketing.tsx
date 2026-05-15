@@ -52,10 +52,10 @@ export default function PRMarketing() {
 
       {/* Mobile photo strip */}
       <div className="lg:hidden grid grid-cols-2 gap-[2px]">
-        <div className="relative" style={{ aspectRatio: '4/3' }}>
+        <div className="relative" style={{ aspectRatio: '3/4' }}>
           <Image src="/images/pr_main.jpg" alt="Brand presence" fill className="object-cover object-top" sizes="50vw" />
         </div>
-        <div className="relative" style={{ aspectRatio: '4/3' }}>
+        <div className="relative" style={{ aspectRatio: '3/4' }}>
           <Image src="/images/pr_b.jpg" alt="Cultural elegance" fill className="object-cover object-top" sizes="50vw" />
         </div>
       </div>

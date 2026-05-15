@@ -78,16 +78,13 @@ export default function About() {
           </div>
         </FadeIn>
 
-        {/* Body + quote */}
-        <FadeIn delay={0.1} className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-[clamp(5rem,10vw,10rem)]">
-          <p className="text-[0.72rem] font-light leading-[2] text-taupe">
+        {/* Body */}
+        <FadeIn delay={0.1} className="mb-[clamp(5rem,10vw,10rem)]">
+          <p className="text-[0.72rem] font-light leading-[2] text-taupe max-w-xl">
             S.P.H.E.R.E. has no edges, no weak points, and no hierarchy. It represents completeness,
             balance, and unity: values that define how we operate and how we serve.
             Everything within a sphere is connected, and every connection matters.
           </p>
-          <blockquote className="font-display italic text-[clamp(1rem,1.8vw,1.4rem)] font-light text-[#B8922C] leading-tight">
-            "We are the Masters of Haute Living<br />& Whisperers of Excellence."
-          </blockquote>
         </FadeIn>
 
         {/* ── Acrostic ── */}
@@ -96,46 +93,81 @@ export default function About() {
           <span className="label text-[#B8922C]">What Our Name Means</span>
         </FadeIn>
 
-        {/* Row 1 — 3 cols on mobile, 6 on desktop */}
-        <div ref={acrosticRef} className="grid grid-cols-3 lg:grid-cols-6 border-t border-ink/10">
-          {acrostic.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={acrosticInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.07 }}
-              className={`border-r border-ink/10 pt-6 pb-4 flex flex-col items-center text-center
-                ${i === 2 ? 'max-lg:border-r-0' : ''}
-                ${i === 5 ? 'border-r-0' : ''}
-              `}
-            >
-              <span
-                className="font-display italic block leading-none mb-2"
-                style={{ fontSize: 'clamp(2rem,4.5vw,4.5rem)', color: '#B8922C' }}
-              >
-                {item.letter}
-              </span>
-              <span className="label text-ink/35 max-lg:!tracking-[0.15em]" style={{ fontSize: '0.5rem', letterSpacing: '0.32em' }}>
-                {item.word.toUpperCase()}
-              </span>
-            </motion.div>
-          ))}
-        </div>
+        {/* Acrostic wrapper — trigger InView for both layouts */}
+        <div ref={acrosticRef}>
 
-        {/* Row 2 — description cards, all six on one line */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-b border-ink/10 mb-[clamp(5rem,10vw,10rem)]">
-          {acrostic.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={acrosticInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.9, delay: 0.2 + i * 0.07 }}
-              className="border-r border-ink/10 last:border-r-0 py-10 px-4 lg:px-5 flex flex-col items-center text-center"
-            >
-              <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>{item.word.toUpperCase()}</span>
-              <p className="text-[0.63rem] font-light leading-[1.85] text-taupe">{item.body}</p>
-            </motion.div>
-          ))}
+          {/* MOBILE: vertical list — lettera+parola sinistra, descrizione destra */}
+          <div className="lg:hidden border-t border-b border-ink/10 mb-[clamp(2.5rem,8vw,8rem)]">
+            {acrostic.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={acrosticInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: i * 0.07 }}
+                className="grid grid-cols-[72px_1fr] border-b border-ink/10 last:border-b-0 py-5"
+              >
+                {/* Sinistra: lettera + parola */}
+                <div className="flex flex-col items-center justify-center border-r border-ink/10 pr-2">
+                  <span
+                    className="font-display italic leading-none mb-1.5"
+                    style={{ fontSize: '2.2rem', color: '#B8922C' }}
+                  >
+                    {item.letter}
+                  </span>
+                  <span className="label text-ink/35" style={{ fontSize: '0.42rem', letterSpacing: '0.12em' }}>
+                    {item.word.toUpperCase()}
+                  </span>
+                </div>
+                {/* Destra: label parola + descrizione */}
+                <div className="flex flex-col justify-center pl-4">
+                  <span className="label text-[#B8922C] block mb-1.5" style={{ fontSize: '0.48rem', letterSpacing: '0.2em' }}>
+                    {item.word.toUpperCase()}
+                  </span>
+                  <p className="text-[0.68rem] font-light leading-[1.85] text-taupe">{item.body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* DESKTOP: Row 1 — lettere */}
+          <div className="hidden lg:grid grid-cols-6 border-t border-ink/10">
+            {acrostic.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={acrosticInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: i * 0.07 }}
+                className={`border-r border-ink/10 pt-7 pb-4 flex flex-col items-center text-center ${i === 5 ? 'border-r-0' : ''}`}
+              >
+                <span
+                  className="font-display italic block leading-none mb-2"
+                  style={{ fontSize: 'clamp(2.4rem,4.5vw,4.5rem)', color: '#B8922C' }}
+                >
+                  {item.letter}
+                </span>
+                <span className="label text-ink/35" style={{ fontSize: '0.5rem', letterSpacing: '0.32em' }}>
+                  {item.word.toUpperCase()}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* DESKTOP: Row 2 — schede descrittive */}
+          <div className="hidden lg:grid grid-cols-6 border-t border-b border-ink/10 mb-[clamp(5rem,10vw,10rem)]">
+            {acrostic.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={acrosticInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.9, delay: 0.2 + i * 0.07 }}
+                className={`border-r border-ink/10 py-10 px-5 flex flex-col items-center text-center ${i === 5 ? 'border-r-0' : ''}`}
+              >
+                <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>{item.word.toUpperCase()}</span>
+                <p className="text-[0.63rem] font-light leading-[1.85] text-taupe">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
 
@@ -143,7 +175,7 @@ export default function About() {
       <div className="rule" style={{ opacity: 0.08 }} />
       <div className="grid lg:grid-cols-[1fr_440px]">
 
-        <div className="px-site py-[clamp(5rem,10vw,10rem)]">
+        <div className="px-site py-10 lg:py-[clamp(5rem,10vw,10rem)]">
           <FadeIn className="mb-8">
             <span className="label text-[#B8922C]">Heritage</span>
           </FadeIn>

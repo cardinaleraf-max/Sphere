@@ -100,8 +100,22 @@ export function HeroGeometric() {
           </ClipLine>
         </div>
 
+        {/* Subtitle quote */}
+        <FadeIn delay={1.0} className="mt-6 lg:mt-10">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="rule-gold w-5 flex-shrink-0" />
+          </div>
+          <p
+            className="font-display italic font-light leading-snug max-w-sm"
+            style={{ fontSize: "clamp(0.9rem,1.5vw,1.28rem)", color: "#B8922C" }}
+          >
+            "We are the Masters of Haute Living
+            <br />& Whisperers of Excellence."
+          </p>
+        </FadeIn>
+
         {/* Scroll cue */}
-        <FadeIn delay={1.5} className="mt-8 lg:mt-16">
+        <FadeIn delay={1.6} className="mt-8 lg:mt-12">
           <button
             onClick={() => go("#about")}
             className="label"

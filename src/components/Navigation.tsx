@@ -60,12 +60,23 @@ export default function Navigation() {
         {/* Top rule */}
         <div className="rule-gold" />
 
-        <div className="px-site grid grid-cols-[auto_1fr_auto] items-center lg:flex lg:items-center lg:justify-between h-[60px]">
+        {/* Logo mobile: absolute nella nav (fixed left-0 right-0 = viewport)
+            → left-1/2 -translate-x-1/2 è matematicamente centrato nel viewport
+            → inset-y-0 + flex items-center = centrato in altezza */}
+        <a
+          href="#"
+          onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+          className="lg:hidden absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 flex items-center w-24 opacity-80 hover:opacity-100 transition-opacity duration-300"
+        >
+          {mounted && <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />}
+        </a>
 
-          {/* Mobile hamburger — left slot */}
+        <div className="px-site flex items-center h-[60px] justify-between">
+
+          {/* Mobile: hamburger a sinistra */}
           <button
             onClick={() => setMenuOpen(v => !v)}
-            className="lg:hidden flex flex-col gap-[5px] p-2 relative z-10"
+            className="lg:hidden flex flex-col gap-[5px] p-2"
             aria-label="Menu"
           >
             <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
@@ -76,18 +87,16 @@ export default function Navigation() {
               style={{ background: text }} />
           </button>
 
-          {/* Logo — centered on mobile (col 2), left on desktop */}
+          {/* Desktop: logo a sinistra */}
           <a
             href="#"
             onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="justify-self-center lg:justify-self-auto w-24 lg:w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="hidden lg:block w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
           >
-            {mounted && (
-              <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />
-            )}
+            {mounted && <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />}
           </a>
 
-          {/* Desktop nav — section numbers + labels on hover */}
+          {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-8">
             {sections.map(s => (
               <li key={s.href}>
@@ -107,7 +116,7 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Enquire — desktop only */}
+          {/* Desktop: enquire a destra */}
           <button
             onClick={() => go('#contact')}
             className="hidden lg:block label link-underline"
@@ -115,9 +124,6 @@ export default function Navigation() {
           >
             Enquire
           </button>
-
-          {/* Mobile right spacer — balances hamburger to keep logo visually centered */}
-          <div className="lg:hidden w-10 h-10" aria-hidden="true" />
         </div>
 
         {/* Bottom rule */}
@@ -132,9 +138,9 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[90] bg-[#0D0B09] flex flex-col items-center justify-center pt-[60px]"
+            className="fixed inset-0 z-[90] bg-[#0D0B09] flex flex-col items-center justify-center pt-[60px] overflow-y-auto"
           >
-            <div className="rule-gold w-16 mb-16" />
+            <div className="rule-gold w-16 mb-8" />
             {sections.map((s, i) => (
               <motion.button
                 key={s.href}
@@ -142,15 +148,15 @@ export default function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 onClick={() => go(s.href)}
-                className="mb-8 flex items-baseline gap-3 group"
+                className="mb-5 flex items-baseline gap-3 group"
               >
                 <span className="font-display italic text-sm text-[#B8922C]">{s.num}</span>
-                <span className="font-display italic text-[2.5rem] font-light text-[#F0EBE0] group-hover:text-[#B8922C] transition-colors duration-300">
+                <span className="font-display italic text-[2rem] font-light text-[#F0EBE0] group-hover:text-[#B8922C] transition-colors duration-300">
                   {s.label}
                 </span>
               </motion.button>
             ))}
-            <div className="rule-gold w-16 mt-8 mb-10" />
+            <div className="rule-gold w-16 mt-6 mb-6" />
             <button
               onClick={() => go('#contact')}
               className="label text-[#B8922C] link-underline"
