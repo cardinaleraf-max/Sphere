@@ -119,7 +119,7 @@ export default function Services() {
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => go(s.href)}
-                className="group flex items-start gap-8 lg:gap-12 py-8 lg:py-10 border-b border-ink/10 cursor-pointer"
+                className="group flex items-start gap-6 lg:gap-12 py-8 lg:py-10 border-b border-ink/10 cursor-pointer"
               >
                 <span
                   className="label flex-shrink-0 pt-1 transition-colors duration-400"
@@ -135,7 +135,7 @@ export default function Services() {
                     initial={{ maxHeight: 0, opacity: 0 }}
                     animate={hovered === i ? { maxHeight: 120, opacity: 1 } : { maxHeight: 0, opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="overflow-hidden text-[0.72rem] font-light leading-[2] text-taupe max-w-md"
+                    className="overflow-hidden text-[0.72rem] font-light leading-[2] text-taupe max-w-md max-lg:!max-h-none max-lg:!opacity-100"
                   >
                     {s.body}
                   </motion.p>

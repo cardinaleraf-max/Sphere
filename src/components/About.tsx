@@ -96,23 +96,26 @@ export default function About() {
           <span className="label text-[#B8922C]">What Our Name Means</span>
         </FadeIn>
 
-        {/* Row 1 — letters, all six on one line */}
-        <div ref={acrosticRef} className="grid grid-cols-6 border-t border-ink/10">
+        {/* Row 1 — 3 cols on mobile, 6 on desktop */}
+        <div ref={acrosticRef} className="grid grid-cols-3 lg:grid-cols-6 border-t border-ink/10">
           {acrostic.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 8 }}
               animate={acrosticInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: i * 0.07 }}
-              className="border-r border-ink/10 last:border-r-0 pt-7 pb-4 flex flex-col items-center text-center"
+              className={`border-r border-ink/10 pt-6 pb-4 flex flex-col items-center text-center
+                ${i === 2 ? 'max-lg:border-r-0' : ''}
+                ${i === 5 ? 'border-r-0' : ''}
+              `}
             >
               <span
                 className="font-display italic block leading-none mb-2"
-                style={{ fontSize: 'clamp(2.4rem,4.5vw,4.5rem)', color: '#B8922C' }}
+                style={{ fontSize: 'clamp(2rem,4.5vw,4.5rem)', color: '#B8922C' }}
               >
                 {item.letter}
               </span>
-              <span className="label text-ink/35" style={{ fontSize: '0.5rem', letterSpacing: '0.32em' }}>
+              <span className="label text-ink/35 max-lg:!tracking-[0.15em]" style={{ fontSize: '0.5rem', letterSpacing: '0.32em' }}>
                 {item.word.toUpperCase()}
               </span>
             </motion.div>

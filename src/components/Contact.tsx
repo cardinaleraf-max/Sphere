@@ -65,7 +65,7 @@ export default function Contact() {
         </div>
 
         {/* Two-column: form + info */}
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-24">
 
           {/* Form */}
           <FadeIn delay={0.2}>

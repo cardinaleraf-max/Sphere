@@ -60,12 +60,27 @@ export default function Navigation() {
         {/* Top rule */}
         <div className="rule-gold" />
 
-        <div className="px-site flex items-center justify-between h-[60px]">
-          {/* Logo */}
+        <div className="px-site grid grid-cols-[auto_1fr_auto] items-center lg:flex lg:items-center lg:justify-between h-[60px]">
+
+          {/* Mobile hamburger — left slot */}
+          <button
+            onClick={() => setMenuOpen(v => !v)}
+            className="lg:hidden flex flex-col gap-[5px] p-2 relative z-10"
+            aria-label="Menu"
+          >
+            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
+              style={{ background: text }} />
+            <span className={`block h-px transition-all duration-400 ${menuOpen ? 'w-0 opacity-0' : 'w-4'}`}
+              style={{ background: text }} />
+            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
+              style={{ background: text }} />
+          </button>
+
+          {/* Logo — centered on mobile (col 2), left on desktop */}
           <a
             href="#"
             onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="w-24 lg:w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="justify-self-center lg:justify-self-auto w-24 lg:w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
           >
             {mounted && (
               <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />
@@ -92,7 +107,7 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Enquire */}
+          {/* Enquire — desktop only */}
           <button
             onClick={() => go('#contact')}
             className="hidden lg:block label link-underline"
@@ -101,19 +116,8 @@ export default function Navigation() {
             Enquire
           </button>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMenuOpen(v => !v)}
-            className="lg:hidden flex flex-col gap-[5px] p-2"
-            aria-label="Menu"
-          >
-            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
-              style={{ background: text }} />
-            <span className={`block h-px transition-all duration-400 ${menuOpen ? 'w-0 opacity-0' : 'w-4'}`}
-              style={{ background: text }} />
-            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
-              style={{ background: text }} />
-          </button>
+          {/* Mobile right spacer — balances hamburger to keep logo visually centered */}
+          <div className="lg:hidden w-10 h-10" aria-hidden="true" />
         </div>
 
         {/* Bottom rule */}

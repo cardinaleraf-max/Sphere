@@ -101,7 +101,7 @@ export function HeroGeometric() {
         </div>
 
         {/* Scroll cue */}
-        <FadeIn delay={1.5} className="mt-16">
+        <FadeIn delay={1.5} className="mt-8 lg:mt-16">
           <button
             onClick={() => go("#about")}
             className="label"
