@@ -65,8 +65,8 @@ export function HeroGeometric() {
         sizes="100vw"
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#0D0B09]/35 pointer-events-none" />
+      {/* Dark overlay — /60 for WCAG AA contrast on white text */}
+      <div className="absolute inset-0 bg-[#0D0B09]/60 pointer-events-none" />
 
       {/* Bottom vignette */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0D0B09] to-transparent pointer-events-none" />
@@ -77,7 +77,7 @@ export function HeroGeometric() {
           <ClipLine delay={0.5}>
             <h1
               className="font-display italic font-light leading-[0.92]"
-              style={{ fontSize: "clamp(2.6rem,7vw,7rem)", color: "#F0EBE0" }}
+              style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
               A Name That Defines
             </h1>
@@ -85,7 +85,7 @@ export function HeroGeometric() {
           <ClipLine delay={0.62}>
             <h1
               className="font-display font-light leading-[0.92]"
-              style={{ fontSize: "clamp(2.6rem,7vw,7rem)", color: "#B8922C" }}
+              style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#B8922C" }}
             >
               Our Commitment
             </h1>
@@ -93,7 +93,7 @@ export function HeroGeometric() {
           <ClipLine delay={0.74}>
             <h1
               className="font-display italic font-light leading-[0.92]"
-              style={{ fontSize: "clamp(2.6rem,7vw,7rem)", color: "#F0EBE0" }}
+              style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
               to Excellence.
             </h1>

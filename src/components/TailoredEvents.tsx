@@ -88,7 +88,7 @@ export default function TailoredEvents() {
             <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">II</span>
             <div className="mb-3">
               <div className="rule-gold w-6 mb-3" />
-              <span className="label text-[#B8922C]">Tailored Events</span>
+              <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Events</span>
             </div>
           </FadeIn>
 

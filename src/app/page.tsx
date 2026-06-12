@@ -2,12 +2,14 @@ import Grain from '@/components/Grain'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-// import Services from '@/components/Services'        // nascosta — riattivare se serve
 import TailoredEvents from '@/components/TailoredEvents'
 import Concierge from '@/components/Concierge'
-// import PRMarketing from '@/components/PRMarketing'  // nascosta — riattivare se serve
+import Team from '@/components/Team'
+import News from '@/components/News'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import CookieBanner from '@/components/CookieBanner'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Home() {
   return (
@@ -17,13 +19,15 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        {/* <Services /> */}
         <TailoredEvents />
         <Concierge />
-        {/* <PRMarketing /> */}
+        <Team />
+        <News />
         <Contact />
       </main>
       <Footer />
+      <CookieBanner />
+      <ScrollToTop />
     </>
   )
 }

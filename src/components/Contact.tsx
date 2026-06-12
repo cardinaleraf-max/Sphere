@@ -19,6 +19,7 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [accepted, setAccepted] = useState(false)
   const [sent, setSent] = useState(false)
   const headRef = useRef(null)
   const headInView = useInView(headRef, { once: true, margin: '-80px' })
@@ -29,10 +30,10 @@ export default function Contact() {
 
         {/* Section num + headline */}
         <FadeIn className="flex items-end gap-5 mb-[clamp(3rem,6vw,6rem)]">
-          <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">IV</span>
+          <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">VI</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
-            <span className="label text-[#B8922C]">Contact</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Contact</span>
           </div>
         </FadeIn>
 
@@ -107,12 +108,37 @@ export default function Contact() {
                     className="w-full bg-transparent border-b border-ivory/30 pb-3 text-[0.9rem] font-light text-ivory placeholder:text-mist/60 focus:outline-none focus:border-[#B8922C]/70 transition-colors duration-400 resize-none"
                   />
                 </div>
+                {/* Privacy consent */}
+                <div className="flex items-start gap-4">
+                  <button
+                    type="button"
+                    role="checkbox"
+                    aria-checked={accepted}
+                    onClick={() => setAccepted(v => !v)}
+                    className={`mt-[2px] w-4 h-4 flex-shrink-0 border transition-colors duration-300 flex items-center justify-center ${accepted ? 'border-[#B8922C] bg-[#B8922C]/15' : 'border-ivory/30'}`}
+                  >
+                    {accepted && (
+                      <svg width="8" height="6" viewBox="0 0 8 6" fill="none" aria-hidden="true">
+                        <path d="M1 3 L3 5 L7 1" stroke="#B8922C" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </button>
+                  <p className="text-[0.68rem] font-light leading-[1.8] text-ivory/60">
+                    I have read and accept the{' '}
+                    <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[#B8922C] hover:text-ivory transition-colors duration-200 underline underline-offset-2">
+                      Privacy Policy
+                    </a>
+                    {' '}and consent to the processing of my personal data.
+                  </p>
+                </div>
+
                 <button
                   type="submit"
-                  className="label text-ivory link-underline group flex items-center gap-3"
+                  disabled={!accepted}
+                  className={`label link-underline group flex items-center gap-3 transition-opacity duration-300 ${accepted ? 'text-ivory opacity-100' : 'text-ivory/30 opacity-40 cursor-not-allowed'}`}
                 >
                   Send Request
-                  <motion.span whileHover={{ x: 4 }} className="inline-block">→</motion.span>
+                  <motion.span whileHover={{ x: accepted ? 4 : 0 }} className="inline-block">→</motion.span>
                 </button>
               </form>
             )}
@@ -126,18 +152,18 @@ export default function Contact() {
             </div>
             <div className="rule" style={{ opacity: 0.18 }} />
             <div>
-              <span className="label text-[#B8922C] block mb-3">Phone</span>
-              <a href="tel:+966505736765"
-                className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
-                +966 50 573 67 65
-              </a>
-            </div>
-            <div className="rule" style={{ opacity: 0.18 }} />
-            <div>
               <span className="label text-[#B8922C] block mb-3">Email</span>
               <a href="mailto:info@sphere.com.sa"
                 className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
                 info@sphere.com.sa
+              </a>
+            </div>
+            <div className="rule" style={{ opacity: 0.18 }} />
+            <div>
+              <span className="label text-[#B8922C] block mb-3">Follow</span>
+              <a href="https://www.instagram.com/sphere.ksa" target="_blank" rel="noopener noreferrer"
+                className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
+                @sphere.ksa
               </a>
             </div>
           </FadeIn>

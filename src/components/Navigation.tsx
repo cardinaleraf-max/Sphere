@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const sections = [
-  { num: 'I',   label: 'About',         href: '#about' },
-  { num: 'II',  label: 'Events',        href: '#events' },
-  { num: 'III', label: 'Concierge',     href: '#concierge' },
-  { num: 'IV',  label: 'Contact',       href: '#contact' },
+  { num: 'I',   label: 'About',     href: '#about' },
+  { num: 'II',  label: 'Events',    href: '#events' },
+  { num: 'III', label: 'Concierge', href: '#concierge' },
+  { num: 'IV',  label: 'Team',      href: '#team' },
+  { num: 'V',   label: 'News',      href: '#news' },
+  { num: 'VI',  label: 'Contact',   href: '#contact' },
 ]
 
 export default function Navigation() {
@@ -17,8 +19,8 @@ export default function Navigation() {
 
   useEffect(() => {
     setMounted(true)
-    const darkSections = ['hero', 'about', 'events', 'contact']
-    const lightSections = ['heritage', 'concierge']
+    const darkSections = ['hero', 'about', 'events', 'news', 'contact']
+    const lightSections = ['heritage', 'concierge', 'team']
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {

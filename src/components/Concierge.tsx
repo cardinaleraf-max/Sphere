@@ -57,7 +57,7 @@ export default function Concierge() {
           <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" style={{ color: '#B8922C', opacity: 0.18 }} aria-hidden="true">III</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
-            <span className="label text-[#B8922C]">Concierge</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Concierge</span>
           </div>
         </FadeIn>
 
