@@ -5,11 +5,9 @@ import Image from 'next/image'
 
 const sections = [
   { num: 'I',   label: 'About',         href: '#about' },
-  { num: 'II',  label: 'Services',      href: '#services' },
-  { num: 'III', label: 'Events',        href: '#events' },
-  { num: 'IV',  label: 'Concierge',     href: '#concierge' },
-  { num: 'V',   label: 'PR',            href: '#pr-marketing' },
-  { num: 'VI',  label: 'Contact',       href: '#contact' },
+  { num: 'II',  label: 'Events',        href: '#events' },
+  { num: 'III', label: 'Concierge',     href: '#concierge' },
+  { num: 'IV',  label: 'Contact',       href: '#contact' },
 ]
 
 export default function Navigation() {
@@ -19,8 +17,8 @@ export default function Navigation() {
 
   useEffect(() => {
     setMounted(true)
-    const darkSections = ['hero', 'events', 'pr-marketing', 'contact']
-    const lightSections = ['about', 'services', 'concierge']
+    const darkSections = ['hero', 'about', 'events', 'contact']
+    const lightSections = ['heritage', 'concierge']
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {

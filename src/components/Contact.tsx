@@ -29,7 +29,7 @@ export default function Contact() {
 
         {/* Section num + headline */}
         <FadeIn className="flex items-end gap-5 mb-[clamp(3rem,6vw,6rem)]">
-          <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">VI</span>
+          <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">IV</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
             <span className="label text-[#B8922C]">Contact</span>
@@ -58,7 +58,7 @@ export default function Contact() {
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
-            <p className="text-[0.72rem] font-light leading-[2] text-mist max-w-md mt-8">
+            <p className="text-[0.78rem] font-light leading-[2] text-ivory/80 max-w-md mt-8">
               How we challenge conventions and redefine the standards of the world's finest experiences.
             </p>
           </FadeIn>
@@ -92,7 +92,7 @@ export default function Contact() {
                       placeholder={f.placeholder}
                       value={form[f.key as keyof typeof form]}
                       onChange={e => setForm(v => ({ ...v, [f.key]: e.target.value }))}
-                      className="w-full bg-transparent border-b border-ivory/15 pb-3 text-[0.82rem] font-light text-ivory placeholder:text-mist/40 focus:outline-none focus:border-[#B8922C]/50 transition-colors duration-400"
+                      className="w-full bg-transparent border-b border-ivory/30 pb-3 text-[0.9rem] font-light text-ivory placeholder:text-mist/60 focus:outline-none focus:border-[#B8922C]/70 transition-colors duration-400"
                     />
                   </div>
                 ))}
@@ -104,7 +104,7 @@ export default function Contact() {
                     placeholder="Tell us about your enquiry..."
                     value={form.message}
                     onChange={e => setForm(v => ({ ...v, message: e.target.value }))}
-                    className="w-full bg-transparent border-b border-ivory/15 pb-3 text-[0.82rem] font-light text-ivory placeholder:text-mist/40 focus:outline-none focus:border-[#B8922C]/50 transition-colors duration-400 resize-none"
+                    className="w-full bg-transparent border-b border-ivory/30 pb-3 text-[0.9rem] font-light text-ivory placeholder:text-mist/60 focus:outline-none focus:border-[#B8922C]/70 transition-colors duration-400 resize-none"
                   />
                 </div>
                 <button
@@ -122,21 +122,21 @@ export default function Contact() {
           <FadeIn delay={0.35} className="space-y-10">
             <div>
               <span className="label text-[#B8922C] block mb-3">Office</span>
-              <p className="text-[0.82rem] font-light text-mist">Riyadh, Kingdom of Saudi Arabia</p>
+              <p className="text-[0.9rem] font-light text-ivory/85">Riyadh, Kingdom of Saudi Arabia</p>
             </div>
-            <div className="rule" style={{ opacity: 0.1 }} />
+            <div className="rule" style={{ opacity: 0.18 }} />
             <div>
               <span className="label text-[#B8922C] block mb-3">Phone</span>
               <a href="tel:+966505736765"
-                className="text-[0.82rem] font-light text-mist hover:text-ivory transition-colors duration-300 link-underline">
+                className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
                 +966 50 573 67 65
               </a>
             </div>
-            <div className="rule" style={{ opacity: 0.1 }} />
+            <div className="rule" style={{ opacity: 0.18 }} />
             <div>
               <span className="label text-[#B8922C] block mb-3">Email</span>
               <a href="mailto:info@sphere.com.sa"
-                className="text-[0.82rem] font-light text-mist hover:text-ivory transition-colors duration-300 link-underline">
+                className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
                 info@sphere.com.sa
               </a>
             </div>

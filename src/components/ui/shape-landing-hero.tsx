@@ -66,7 +66,7 @@ export function HeroGeometric() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#0D0B09]/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#0D0B09]/35 pointer-events-none" />
 
       {/* Bottom vignette */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0D0B09] to-transparent pointer-events-none" />
