@@ -67,7 +67,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-night text-ivory">
-      <div className="px-site pt-[clamp(5rem,10vw,10rem)] pb-[clamp(4rem,8vw,8rem)]">
+      <div className="px-site pt-[clamp(5rem,10vw,10rem)] pb-0">
 
         {/* Header + body left, logo right (spans both) */}
         <div className="grid lg:grid-cols-[1fr_auto] items-center gap-12 lg:gap-24 mb-[clamp(5rem,10vw,10rem)]">
@@ -110,7 +110,7 @@ export default function About() {
         <div ref={acrosticRef}>
 
           {/* MOBILE: vertical list — lettera+parola sinistra, descrizione destra */}
-          <div className="lg:hidden border-t border-b border-ivory/10 mb-[clamp(2.5rem,8vw,8rem)]">
+          <div className="lg:hidden border-t border-b border-ivory/10">
             {acrostic.map((item, i) => (
               <motion.div
                 key={i}
@@ -166,7 +166,7 @@ export default function About() {
           </div>
 
           {/* DESKTOP: Row 2 — schede descrittive */}
-          <div className="hidden lg:grid grid-cols-6 border-t border-b border-ivory/10 mb-[clamp(5rem,10vw,10rem)]">
+          <div className="hidden lg:grid grid-cols-6 border-t border-b border-ivory/10">
             {acrostic.map((item, i) => (
               <motion.div
                 key={i}
