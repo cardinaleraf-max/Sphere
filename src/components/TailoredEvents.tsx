@@ -96,7 +96,7 @@ export default function TailoredEvents() {
             <div className="overflow-hidden">
               <ClipReveal>
                 <h2 className="font-display italic font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.0] text-ivory">
-                  Tailored Events &amp;
+                  Events &amp;
                 </h2>
               </ClipReveal>
             </div>

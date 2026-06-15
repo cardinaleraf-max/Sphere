@@ -57,7 +57,7 @@ export function HeroGeometric() {
     <div className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center">
       {/* Background image */}
       <Image
-        src="/images/hero principale.jpg"
+        src="/images/hero1234.png"
         alt="S.P.H.E.R.E. luxury backdrop"
         fill
         priority

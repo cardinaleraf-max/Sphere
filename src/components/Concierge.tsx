@@ -10,8 +10,8 @@ const cards = [
     num: '01',
     title: 'Business Concierge',
     body: 'Corporate hospitality, executive travel, private venue sourcing, protocol management and high-level event facilitation for discerning professionals.',
-    img: '/images/concierge_b.jpg',
-    imgAlt: 'Private luxury travel',
+    img: '/images/concierge_portrait.jpg',
+    imgAlt: 'Private jet concierge service',
   },
   {
     num: '02',
@@ -24,8 +24,8 @@ const cards = [
     num: '03',
     title: 'Travel and Bespoke Experience',
     body: 'Bespoke experiences for your most valued relationships from exclusive access and curated journeys to private events that leave a lasting impression.',
-    img: '/images/concierge_portrait.jpg',
-    imgAlt: 'Private jet concierge service',
+    img: '/images/concierge_b.jpg',
+    imgAlt: 'Private luxury travel',
   },
 ]
 
