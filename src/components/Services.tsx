@@ -98,7 +98,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             animate={headInView ? { opacity: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="text-[0.72rem] font-light leading-[2] text-taupe max-w-md mb-[clamp(3rem,7vw,7rem)]"
+            className="text-[0.82rem] font-light leading-[2] text-taupe max-w-md mb-[clamp(3rem,7vw,7rem)]"
           >
             We design and manage events and weddings with elegance and precision. Our concierge services
             and F&B expertise ensure every detail is seamless. Through PR and Media Management, we give
@@ -135,7 +135,7 @@ export default function Services() {
                     initial={{ maxHeight: 0, opacity: 0 }}
                     animate={hovered === i ? { maxHeight: 120, opacity: 1 } : { maxHeight: 0, opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="overflow-hidden text-[0.72rem] font-light leading-[2] text-taupe max-w-md max-lg:!max-h-none max-lg:!opacity-100"
+                    className="overflow-hidden text-[0.82rem] font-light leading-[2] text-taupe max-w-md max-lg:!max-h-none max-lg:!opacity-100"
                   >
                     {s.body}
                   </motion.p>

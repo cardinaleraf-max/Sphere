@@ -41,7 +41,7 @@ export default function CookieBanner() {
         >
           <div className="rule-gold" />
           <div className="px-site py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-[0.72rem] font-light leading-[1.9] text-mist/80 max-w-xl">
+            <p className="text-[0.9rem] font-light leading-[1.9] text-mist/80 max-w-xl">
               We use cookies to improve your experience and analyse site traffic.
               By clicking Accept, you consent to our use of cookies in accordance with our{' '}
               <Link href="/privacy" className="text-[#B8922C] hover:text-[#B8922C]/80 transition-colors duration-200 underline underline-offset-2">
@@ -59,7 +59,7 @@ export default function CookieBanner() {
               <button
                 onClick={accept}
                 className="label text-[#0D0B09] bg-[#B8922C] px-5 py-2 hover:bg-[#C8A23C] transition-colors duration-200"
-                style={{ fontSize: '0.6rem', letterSpacing: '0.3em' }}
+                style={{ fontSize: '0.75rem', letterSpacing: '0.3em' }}
               >
                 Accept
               </button>

@@ -89,7 +89,7 @@ export default function News() {
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
-            <p className="text-[0.72rem] font-light leading-[2] text-mist/80 max-w-md mt-8">
+            <p className="text-[0.9rem] font-light leading-[2] text-mist/80 max-w-md mt-8">
               Moments captured, ideas shared, and insights from the world of luxury hospitality and experiential design.
             </p>
           </FadeIn>
@@ -121,7 +121,7 @@ export default function News() {
                   style={{ backgroundImage: `url(${a.img})` }}
                 />
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="label text-[#B8922C] bg-[#0D0B09]/80 px-2 py-1" style={{ fontSize: '0.48rem', letterSpacing: '0.3em' }}>
+                  <span className="label text-[#B8922C] bg-[#0D0B09]/80 px-2 py-1" style={{ fontSize: '0.7rem', letterSpacing: '0.3em' }}>
                     {a.category}
                   </span>
                 </div>
@@ -129,19 +129,19 @@ export default function News() {
 
               {/* Text */}
               <div className="flex items-center gap-4 mb-4">
-                <span className="label text-[#B8922C]" style={{ fontSize: '0.5rem' }}>{a.idx}</span>
+                <span className="label text-[#B8922C]" style={{ fontSize: '0.72rem' }}>{a.idx}</span>
                 <div className="rule-gold flex-1 origin-left transition-transform duration-700 group-hover:opacity-80" />
-                <span className="label text-mist/50" style={{ fontSize: '0.5rem', letterSpacing: '0.2em' }}>{a.date}</span>
+                <span className="label text-mist/50" style={{ fontSize: '0.72rem', letterSpacing: '0.2em' }}>{a.date}</span>
               </div>
               <h3 className="font-display italic font-light text-[1.1rem] lg:text-[1.25rem] text-ivory leading-tight mb-4 group-hover:text-[#B8922C] transition-colors duration-400">
                 {a.title}
               </h3>
-              <p className="text-[0.68rem] font-light leading-[1.9] text-mist/80 flex-1">
+              <p className="text-[0.85rem] font-light leading-[1.9] text-mist/80 flex-1">
                 {a.excerpt}
               </p>
               {isExternal && (
                 <div className="mt-5">
-                  <span className="label text-[#B8922C] link-underline" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+                  <span className="label text-[#B8922C] link-underline" style={{ fontSize: '0.72rem', letterSpacing: '0.28em' }}>
                     Read More →
                   </span>
                 </div>

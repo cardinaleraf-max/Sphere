@@ -87,7 +87,7 @@ export default function Team() {
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
-            <p className="text-[0.72rem] font-light leading-[2] text-taupe max-w-md mt-8">
+            <p className="text-[0.9rem] font-light leading-[2] text-taupe max-w-md mt-8">
               A curated team of international professionals, united by a shared commitment to excellence,
               cultural intelligence and the art of the exceptional.
             </p>
@@ -118,10 +118,10 @@ export default function Team() {
               <h3 className="font-display italic font-light text-[1.2rem] text-ink leading-tight mb-1 group-hover:text-[#B8922C] transition-colors duration-400">
                 {m.name}
               </h3>
-              <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+              <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.72rem', letterSpacing: '0.28em' }}>
                 {m.role}
               </span>
-              <p className="text-[0.68rem] font-light leading-[1.9] text-taupe">
+              <p className="text-[0.82rem] font-light leading-[1.9] text-taupe">
                 {m.bio}
               </p>
             </motion.div>

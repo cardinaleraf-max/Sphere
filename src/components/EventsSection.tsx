@@ -115,7 +115,7 @@ export default function EventsSection() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="text-[0.72rem] font-light leading-[2] text-mist max-w-md">
+            <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-md">
               S.P.H.E.R.E. offers a suite of services that adapt with grace to the scale and spirit
               of each occasion. Everything is thoughtfully attuned, quietly powerful and unmistakably yours.
             </p>

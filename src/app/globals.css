@@ -67,7 +67,7 @@ body {
 /* ── Editorial label ── */
 .label {
   font-family: var(--font-public), sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   font-weight: 400;

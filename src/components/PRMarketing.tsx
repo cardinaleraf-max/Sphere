@@ -103,7 +103,7 @@ export default function PRMarketing() {
           </div>
 
           <FadeIn delay={0.15} className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            <p className="text-[0.72rem] font-light leading-[2] text-mist">
+            <p className="text-[0.82rem] font-light leading-[2] text-mist">
               We design experiences that do more than impress. They amplify a brand's identity and resonance.
               Every touchpoint — from event concept and scenography to digital storytelling and social media —
               is carefully crafted to maximize visibility and create a lasting emotional connection.
@@ -135,11 +135,11 @@ export default function PRMarketing() {
             >
               <span
                 className="mt-[6px] flex-shrink-0 font-display italic text-[#B8922C]"
-                style={{ fontSize: '0.6rem', opacity: 0.6 }}
+                style={{ fontSize: '0.7rem', opacity: 0.6 }}
               >
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span className="text-[0.72rem] font-light leading-loose text-mist group-hover:text-ivory transition-colors duration-300">
+              <span className="text-[0.82rem] font-light leading-loose text-mist group-hover:text-ivory transition-colors duration-300">
                 {s}
               </span>
             </motion.div>

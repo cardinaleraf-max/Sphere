@@ -80,7 +80,7 @@ export default function Concierge() {
             <blockquote className="font-display italic text-[1.3rem] font-light text-[#B8922C] leading-tight">
               "We are the Quiet Curators<br />of your lifestyle."
             </blockquote>
-            <p className="text-[0.72rem] font-light leading-[2] text-taupe">
+            <p className="text-[0.9rem] font-light leading-[2] text-taupe">
               With absolute discretion and refined intuition, we curate access to what is rare,
               manage the everyday with elegance and make the extraordinary appear effortless.
               Whether it is a last-minute travel arrangement, a table few can book, or a moment
@@ -114,7 +114,7 @@ export default function Concierge() {
               <h3 className="font-display italic font-light text-[clamp(1.3rem,2vw,1.8rem)] text-ink leading-tight mb-4 group-hover:text-[#B8922C] transition-colors duration-500">
                 {c.title}
               </h3>
-              <p className="text-[0.72rem] font-light leading-[2] text-taupe">
+              <p className="text-[0.9rem] font-light leading-[2] text-taupe">
                 {c.body}
               </p>
             </motion.div>

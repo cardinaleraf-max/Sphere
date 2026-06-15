@@ -1,6 +1,6 @@
 'use client'
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import { motion, useInView, useMotionValue, useScroll, useMotionValueEvent, animate } from 'framer-motion'
 import Image from 'next/image'
 
 const EASE = [0.76, 0, 0.24, 1] as const
@@ -61,19 +61,55 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
   )
 }
 
-// Logo that spins like a roulette on first scroll into view, then eases to a stop
+// How many degrees the logo turns per pixel scrolled (after the intro spin)
+const SCROLL_ROTATION_FACTOR = 0.2
+
+// Logo that spins like a roulette on first scroll into view, then keeps
+// turning with the page scroll (direction follows scroll direction) while visible.
 function RouletteLogo() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const rotate = useMotionValue(0)
+  const opacity = useMotionValue(0)
+  const spinDone = useRef(false)
+  const visible = useRef(false)
+  const lastY = useRef(0)
+  const { scrollY } = useScroll()
+
+  // Intro roulette spin on first scroll into view
+  useEffect(() => {
+    if (!inView) return
+    lastY.current = scrollY.get()
+    const fade = animate(opacity, 0.9, { duration: 0.8, ease: 'easeOut' })
+    const spin = animate(rotate, 1440, {
+      duration: 3,
+      ease: [0.12, 0.7, 0.2, 1],
+      onComplete: () => {
+        spinDone.current = true
+        lastY.current = scrollY.get()
+      },
+    })
+    return () => {
+      fade.stop()
+      spin.stop()
+    }
+  }, [inView, rotate, opacity, scrollY])
+
+  // After the intro, drive rotation from scroll delta — only while visible
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    const delta = y - lastY.current
+    lastY.current = y
+    if (!spinDone.current || !visible.current) return
+    rotate.set(rotate.get() + delta * SCROLL_ROTATION_FACTOR)
+  })
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, rotate: 0 }}
-      animate={inView ? { opacity: 0.9, rotate: 1440 } : {}}
-      transition={{
-        opacity: { duration: 0.8, ease: 'easeOut' },
-        rotate: { duration: 3, ease: [0.12, 0.7, 0.2, 1] },
-      }}
+      style={{ rotate, opacity }}
+      onViewportEnter={() => { visible.current = true }}
+      onViewportLeave={() => { visible.current = false }}
+      viewport={{ margin: '-80px' }}
       className="w-[clamp(180px,30vw,440px)] will-change-transform"
     >
       <Image
@@ -107,7 +143,7 @@ export default function About() {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <p className="text-[0.72rem] font-light leading-[2] text-mist max-w-xl">
+              <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-xl">
                 S.P.H.E.R.E. has no edges, no weak points, and no hierarchy. It represents completeness,
                 balance, and unity: values that define how we operate and how we serve.
                 Everything within a sphere is connected, and every connection matters.
@@ -147,10 +183,10 @@ export default function About() {
               >
                 {item.letter}
               </span>
-              <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+              <span className="label text-[#B8922C] block mb-4" style={{ fontSize: '0.72rem', letterSpacing: '0.28em' }}>
                 {item.word.toUpperCase()}
               </span>
-              <p className="text-[0.63rem] font-light leading-[1.85] text-mist">{item.body}</p>
+              <p className="text-[0.82rem] font-light leading-[1.85] text-mist">{item.body}</p>
             </motion.div>
           ))}
         </div>
@@ -198,7 +234,7 @@ export default function About() {
             </ClipReveal>
           </div>
           <FadeIn delay={0.3} className="mt-10 mb-[clamp(4rem,8vw,8rem)]">
-            <p className="text-[0.72rem] font-light leading-[2] text-taupe max-w-sm">
+            <p className="text-[0.9rem] font-light leading-[2] text-taupe max-w-sm">
               S.P.H.E.R.E. brings together the timeless elegance and refined taste of Italy
               with an authentic Saudi touch — creating experiences that feel both international
               and deeply local.
@@ -219,7 +255,7 @@ export default function About() {
               </blockquote>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <p className="text-[0.72rem] font-light leading-[2] text-taupe pt-[2.4rem]">
+              <p className="text-[0.9rem] font-light leading-[2] text-taupe pt-[2.4rem]">
                 Inspired by Italian design, craftsmanship and attention to detail,
                 we shape events with style, balance and effortless sophistication.
                 This fusion allows us to deliver events that are visually striking,

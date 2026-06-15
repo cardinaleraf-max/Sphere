@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         <Link
           href="/"
           className="label text-[#B8922C] link-underline mb-12 inline-block"
-          style={{ fontSize: '0.6rem', letterSpacing: '0.3em' }}
+          style={{ fontSize: '0.7rem', letterSpacing: '0.3em' }}
         >
           ← Back
         </Link>
@@ -27,13 +27,13 @@ export default function PrivacyPage() {
         <h1 className="font-display italic font-light text-[clamp(2.2rem,5vw,4rem)] leading-[1.0] text-ivory mb-4 mt-8">
           Privacy Policy
         </h1>
-        <p className="label text-[#B8922C] mb-12" style={{ fontSize: '0.58rem' }}>
+        <p className="label text-[#B8922C] mb-12" style={{ fontSize: '0.7rem' }}>
           Last updated: June 2025
         </p>
 
         <div className="rule-gold w-12 mb-16" />
 
-        <div className="space-y-14 text-[0.8rem] font-light leading-[2] text-ivory/80">
+        <div className="space-y-14 text-[0.9rem] font-light leading-[2] text-ivory/80">
 
           <section>
             <h2 className="font-display italic text-[1.2rem] text-ivory mb-4">1. Data Controller</h2>
@@ -73,11 +73,11 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display italic text-[1.2rem] text-ivory mb-4">3. Purpose and Legal Basis</h2>
             <div className="overflow-x-auto">
-              <table className="w-full text-[0.72rem]">
+              <table className="w-full text-[0.82rem]">
                 <thead>
                   <tr className="border-b border-ivory/10">
-                    <th className="text-left py-3 pr-6 font-normal text-[#B8922C] label" style={{ fontSize: '0.5rem', letterSpacing: '0.2em' }}>Purpose</th>
-                    <th className="text-left py-3 font-normal text-[#B8922C] label" style={{ fontSize: '0.5rem', letterSpacing: '0.2em' }}>Legal Basis (GDPR Art. 6)</th>
+                    <th className="text-left py-3 pr-6 font-normal text-[#B8922C] label" style={{ fontSize: '0.7rem', letterSpacing: '0.2em' }}>Purpose</th>
+                    <th className="text-left py-3 font-normal text-[#B8922C] label" style={{ fontSize: '0.7rem', letterSpacing: '0.2em' }}>Legal Basis (GDPR Art. 6)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-ivory/5">
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
           <Link
             href="/"
             className="label text-[#B8922C] link-underline"
-            style={{ fontSize: '0.6rem', letterSpacing: '0.3em' }}
+            style={{ fontSize: '0.7rem', letterSpacing: '0.3em' }}
           >
             ← Return to Sphere
           </Link>

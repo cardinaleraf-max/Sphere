@@ -59,7 +59,7 @@ export default function Contact() {
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
-            <p className="text-[0.78rem] font-light leading-[2] text-ivory/80 max-w-md mt-8">
+            <p className="text-[0.92rem] font-light leading-[2] text-ivory/80 max-w-md mt-8">
               How we challenge conventions and redefine the standards of the world's finest experiences.
             </p>
           </FadeIn>
@@ -75,7 +75,7 @@ export default function Contact() {
                 <p className="font-display italic text-[1.5rem] text-[#B8922C] leading-tight mb-4">
                   Your request has been received.
                 </p>
-                <p className="text-[0.72rem] font-light text-mist leading-[2]">
+                <p className="text-[0.9rem] font-light text-mist leading-[2]">
                   A member of our team will be in touch with the discretion and care your enquiry deserves.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export default function Contact() {
                       </svg>
                     )}
                   </button>
-                  <p className="text-[0.68rem] font-light leading-[1.8] text-ivory/60">
+                  <p className="text-[0.85rem] font-light leading-[1.8] text-ivory/60">
                     I have read and accept the{' '}
                     <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[#B8922C] hover:text-ivory transition-colors duration-200 underline underline-offset-2">
                       Privacy Policy
