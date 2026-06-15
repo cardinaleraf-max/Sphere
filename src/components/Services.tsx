@@ -8,7 +8,7 @@ const EASE = [0.76, 0, 0.24, 1] as const
 const services = [
   {
     num: '01',
-    title: 'Tailored Events',
+    title: 'Events',
     href: '#events',
     body: 'From intimate gatherings to monumental celebrations — conceived with creative vision and executed with flawless precision. Every occasion is an original.',
   },

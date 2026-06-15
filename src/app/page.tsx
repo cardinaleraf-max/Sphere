@@ -2,7 +2,7 @@ import Grain from '@/components/Grain'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import TailoredEvents from '@/components/TailoredEvents'
+import EventsSection from '@/components/EventsSection'
 import Concierge from '@/components/Concierge'
 import Team from '@/components/Team'
 import News from '@/components/News'
@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <TailoredEvents />
+        <EventsSection />
         <Concierge />
         <Team />
         <News />

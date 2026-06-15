@@ -18,7 +18,7 @@ const publicSans = Public_Sans({
 })
 
 const siteName = 'S.P.H.E.R.E.'
-const title = 'S.P.H.E.R.E. — Luxury Tailored Events & Concierge in Riyadh, Saudi Arabia'
+const title = 'S.P.H.E.R.E. — Luxury Events & Concierge in Riyadh, Saudi Arabia'
 const description =
   'S.P.H.E.R.E. crafts bespoke luxury events, elevated hospitality and private concierge services in Riyadh and across Saudi Arabia — Italian elegance rooted in Kingdom culture. Masters of Haute Living & Whisperers of Excellence.'
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   description,
   keywords: [
     'luxury events Riyadh',
-    'tailored events Saudi Arabia',
+    'luxury events Saudi Arabia',
     'luxury concierge Riyadh',
     'event design Saudi Arabia',
     'VIP hospitality',

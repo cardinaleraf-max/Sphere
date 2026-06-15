@@ -66,7 +66,7 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
   )
 }
 
-export default function TailoredEvents() {
+export default function EventsSection() {
   const listRef = useRef(null)
   const listInView = useInView(listRef, { once: true, margin: '-60px' })
 
@@ -126,7 +126,7 @@ export default function TailoredEvents() {
         <FadeIn delay={0.3} className="relative hidden lg:block min-h-[600px]">
           <Image
             src="/images/Events.png"
-            alt="S.P.H.E.R.E. tailored event — desert setting"
+            alt="S.P.H.E.R.E. event — desert setting"
             fill
             className="object-cover object-center"
             sizes="500px"
