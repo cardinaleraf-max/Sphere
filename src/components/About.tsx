@@ -200,7 +200,7 @@ export default function About() {
         {/* Left: single full-height portrait image (capped height on mobile) */}
         <FadeIn delay={0.2} className="relative h-[60vh] min-h-[360px] overflow-hidden lg:h-auto lg:min-h-[700px]">
           <Image
-            src="/images/Heritage.2.0.png"
+            src="/images/heritage.jpg"
             alt="S.P.H.E.R.E. heritage — Italian elegance meets Saudi culture"
             fill
             className="object-cover object-center"
