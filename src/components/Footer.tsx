@@ -18,7 +18,7 @@ export default function Footer() {
 
         {/* Logo */}
         <div className="w-20 opacity-70 hover:opacity-100 transition-opacity duration-400">
-          <Image src="/logo-white.svg" alt="S.P.H.E.R.E." width={320} height={48} />
+          <Image src="/Logo-Oro.svg" alt="S.P.H.E.R.E." width={320} height={48} />
         </div>
 
         {/* Center */}

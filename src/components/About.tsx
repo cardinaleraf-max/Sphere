@@ -61,6 +61,32 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
   )
 }
 
+// Logo that spins like a roulette on first scroll into view, then eases to a stop
+function RouletteLogo() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, rotate: 0 }}
+      animate={inView ? { opacity: 0.9, rotate: 1440 } : {}}
+      transition={{
+        opacity: { duration: 0.8, ease: 'easeOut' },
+        rotate: { duration: 3, ease: [0.12, 0.7, 0.2, 1] },
+      }}
+      className="w-[clamp(180px,30vw,440px)] will-change-transform"
+    >
+      <Image
+        src="/logo-mark.svg"
+        alt="S.P.H.E.R.E. emblem"
+        width={460}
+        height={460}
+        className="w-full h-auto"
+      />
+    </motion.div>
+  )
+}
+
 export default function About() {
   const acrosticRef = useRef(null)
   const acrosticInView = useInView(acrosticRef, { once: true, margin: '-60px' })
@@ -89,15 +115,9 @@ export default function About() {
             </FadeIn>
           </div>
 
-          <FadeIn delay={0.25} className="justify-self-center lg:justify-self-end lg:pr-[clamp(0rem,3vw,4rem)]">
-            <Image
-              src="/logo-mark.svg"
-              alt="S.P.H.E.R.E. emblem"
-              width={460}
-              height={460}
-              className="w-[clamp(180px,30vw,440px)] h-auto opacity-90"
-            />
-          </FadeIn>
+          <div className="justify-self-center lg:justify-self-end lg:pr-[clamp(0rem,3vw,4rem)]">
+            <RouletteLogo />
+          </div>
         </div>
 
         {/* ── Acrostic ── */}

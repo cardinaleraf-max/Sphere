@@ -32,9 +32,9 @@ const subs = [
   },
   {
     idx: '04',
-    title: 'Concierge, VIP Protocol & Guest Experience',
+    title: 'Guest Management & Protocol',
     body: 'Every guest arrives feeling like the only guest. Each touchpoint handled with quiet, unwavering excellence.',
-    img: '/images/concierge_b.jpg',
+    img: '/images/12.jpg',
     imgAlt: 'VIP guest experience',
     pos: 'object-[center_65%]',
   },
@@ -75,7 +75,7 @@ export default function TailoredEvents() {
 
       {/* Mobile photo strip */}
       <div className="lg:hidden relative" style={{ aspectRatio: '16/10' }}>
-        <Image src="/images/events_portrait.png" alt="Desert event" fill className="object-cover object-center" sizes="100vw" />
+        <Image src="/images/Events.png" alt="Desert event" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0D0B09] to-transparent" />
       </div>
 
@@ -125,7 +125,7 @@ export default function TailoredEvents() {
         {/* Right: full-bleed portrait image */}
         <FadeIn delay={0.3} className="relative hidden lg:block min-h-[600px]">
           <Image
-            src="/images/events_portrait.png"
+            src="/images/Events.png"
             alt="S.P.H.E.R.E. tailored event — desert setting"
             fill
             className="object-cover object-center"
