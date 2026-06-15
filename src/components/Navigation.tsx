@@ -60,38 +60,13 @@ export default function Navigation() {
         {/* Top rule */}
         <div className="rule-gold" />
 
-        {/* Logo mobile: absolute nella nav (fixed left-0 right-0 = viewport)
-            → left-1/2 -translate-x-1/2 è matematicamente centrato nel viewport
-            → inset-y-0 + flex items-center = centrato in altezza */}
-        <a
-          href="#"
-          onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-          className="lg:hidden absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 flex items-center w-24 opacity-80 hover:opacity-100 transition-opacity duration-300"
-        >
-          {mounted && <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />}
-        </a>
-
         <div className="px-site flex items-center h-[60px] justify-between">
 
-          {/* Mobile: hamburger a sinistra */}
-          <button
-            onClick={() => setMenuOpen(v => !v)}
-            className="lg:hidden flex flex-col gap-[5px] p-2"
-            aria-label="Menu"
-          >
-            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
-              style={{ background: text }} />
-            <span className={`block h-px transition-all duration-400 ${menuOpen ? 'w-0 opacity-0' : 'w-4'}`}
-              style={{ background: text }} />
-            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
-              style={{ background: text }} />
-          </button>
-
-          {/* Desktop: logo a sinistra */}
+          {/* Logo a sinistra (mobile + desktop) */}
           <a
             href="#"
             onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="hidden lg:block w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="block w-24 lg:w-28 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
           >
             {mounted && <Image src={logo} alt="S.P.H.E.R.E." width={320} height={48} priority />}
           </a>
@@ -124,6 +99,20 @@ export default function Navigation() {
           >
             Enquire
           </button>
+
+          {/* Mobile: hamburger a destra */}
+          <button
+            onClick={() => setMenuOpen(v => !v)}
+            className="lg:hidden flex flex-col gap-[5px] p-2"
+            aria-label="Menu"
+          >
+            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
+              style={{ background: text }} />
+            <span className={`block h-px transition-all duration-400 ${menuOpen ? 'w-0 opacity-0' : 'w-4'}`}
+              style={{ background: text }} />
+            <span className={`block h-px w-6 transition-all duration-400 origin-center ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
+              style={{ background: text }} />
+          </button>
         </div>
 
         {/* Bottom rule */}
@@ -138,31 +127,38 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[90] bg-[#0D0B09] flex flex-col items-center justify-center pt-[60px] overflow-y-auto"
+            className="fixed inset-0 z-[90] bg-[#0D0B09] flex flex-col items-center pt-[60px] pb-12 overflow-y-auto"
           >
-            <div className="rule-gold w-16 mb-8" />
-            {sections.map((s, i) => (
-              <motion.button
-                key={s.href}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                onClick={() => go(s.href)}
-                className="mb-5 flex items-baseline gap-3 group"
+            {/* Link centrati nello spazio disponibile */}
+            <div className="flex-1 w-full flex flex-col items-center justify-center">
+              <div className="rule-gold w-16 mb-8" />
+              {sections.map((s, i) => (
+                <motion.button
+                  key={s.href}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  onClick={() => go(s.href)}
+                  className="mb-5 flex items-baseline gap-3 group"
+                >
+                  <span className="font-display italic text-sm text-[#B8922C]">{s.num}</span>
+                  <span className="font-display italic text-[2rem] font-light text-[#F0EBE0] group-hover:text-[#B8922C] transition-colors duration-300">
+                    {s.label}
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Enquire ancorato in basso */}
+            <div className="flex flex-col items-center">
+              <div className="rule-gold w-16 mb-6" />
+              <button
+                onClick={() => go('#contact')}
+                className="label text-[#B8922C] link-underline"
               >
-                <span className="font-display italic text-sm text-[#B8922C]">{s.num}</span>
-                <span className="font-display italic text-[2rem] font-light text-[#F0EBE0] group-hover:text-[#B8922C] transition-colors duration-300">
-                  {s.label}
-                </span>
-              </motion.button>
-            ))}
-            <div className="rule-gold w-16 mt-6 mb-6" />
-            <button
-              onClick={() => go('#contact')}
-              className="label text-[#B8922C] link-underline"
-            >
-              Enquire
-            </button>
+                Enquire
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
