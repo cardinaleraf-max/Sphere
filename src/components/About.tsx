@@ -197,14 +197,14 @@ export default function About() {
       <div className="rule" style={{ opacity: 0.08 }} />
       <div className="grid lg:grid-cols-[440px_1fr]">
 
-        {/* Left: single full-height portrait image */}
-        <FadeIn delay={0.2} className="hidden lg:block relative min-h-[700px] overflow-hidden">
+        {/* Left: single full-height portrait image (capped height on mobile) */}
+        <FadeIn delay={0.2} className="relative h-[60vh] min-h-[360px] overflow-hidden lg:h-auto lg:min-h-[700px]">
           <Image
             src="/images/Heritage.2.0.png"
             alt="S.P.H.E.R.E. heritage — Italian elegance meets Saudi culture"
             fill
-            className="object-cover"
-            sizes="440px"
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 440px"
           />
         </FadeIn>
 
