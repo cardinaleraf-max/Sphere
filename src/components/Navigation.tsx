@@ -91,14 +91,17 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Desktop: enquire a destra */}
-          <button
-            onClick={() => go('#contact')}
-            className="hidden lg:block label link-underline"
-            style={{ color: text }}
-          >
-            Enquire
-          </button>
+          {/* Desktop: enquire a destra (wrapper senza link-underline così
+              il display:none di `hidden` non viene sovrascritto su mobile) */}
+          <div className="hidden lg:block">
+            <button
+              onClick={() => go('#contact')}
+              className="label link-underline"
+              style={{ color: text }}
+            >
+              Enquire
+            </button>
+          </div>
 
           {/* Mobile: hamburger a destra */}
           <button
