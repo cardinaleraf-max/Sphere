@@ -4,7 +4,7 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import EventsSection from '@/components/EventsSection'
 import Concierge from '@/components/Concierge'
-import Team from '@/components/Team'
+// import Team from '@/components/Team' // Sezione Team nascosta — riattivare in futuro
 import News from '@/components/News'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -21,7 +21,7 @@ export default function Home() {
         <About />
         <EventsSection />
         <Concierge />
-        <Team />
+        {/* <Team /> Sezione Team nascosta — riattivare in futuro */}
         <News />
         <Contact />
       </main>

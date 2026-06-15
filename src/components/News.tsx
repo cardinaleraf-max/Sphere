@@ -7,11 +7,12 @@ const EASE = [0.76, 0, 0.24, 1] as const
 const articles = [
   {
     idx: '01',
-    date: 'June 2025',
-    category: 'Event',
-    title: 'A Night Under the Stars: Riyadh Gala 2025',
-    excerpt: 'An immersive gala experience in the heart of Riyadh — where Italian aesthetics met Saudi grandeur under an open sky dressed in gold and candlelight.',
-    img: '/images/services_c.jpg',
+    date: 'January 2026',
+    category: 'Press',
+    title: "Saudi Arabia Unveils the 'Dream of the Desert' Sleeper Train",
+    excerpt: 'The Kingdom launches its first ultra-luxury sleeper train — carrying 66 guests across 1,300km of desert in a journey devoted to slow travel and immersive cultural heritage.',
+    img: '/images/dream-of-the-desert.jpg',
+    href: 'https://globetrender.com/2026/01/14/saudi-arabia-dream-of-the-desert-sleeper-train/',
   },
   {
     idx: '02',
@@ -20,6 +21,7 @@ const articles = [
     title: 'The Art of Invisible Orchestration',
     excerpt: 'What makes a truly exceptional event is rarely what guests notice — it is everything they never had to think about. An exploration of our philosophy.',
     img: '/images/concierge_main.jpg',
+    href: '#',
   },
   {
     idx: '03',
@@ -28,6 +30,7 @@ const articles = [
     title: 'Sphere Named Among Riyadh\'s Premier Hospitality Firms',
     excerpt: 'Recognised for its distinctive approach to luxury events and concierge services, Sphere continues to set a new benchmark for elite hospitality in the Kingdom.',
     img: '/images/about_heritage.jpg',
+    href: '#',
   },
 ]
 
@@ -94,14 +97,22 @@ export default function News() {
 
         {/* Articles grid */}
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-8 lg:gap-10 border-t border-ivory/10 pt-10">
-          {articles.map((a, i) => (
+          {articles.map((a, i) => {
+            const isExternal = a.href.startsWith('http')
+            return (
             <motion.article
               key={a.idx}
               initial={{ opacity: 0, y: 20 }}
               animate={cardsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: i * 0.1, ease: EASE }}
-              className="group flex flex-col cursor-pointer"
+              className="group flex flex-col"
             >
+              <a
+                href={a.href}
+                {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className={`flex flex-col h-full ${isExternal ? 'cursor-pointer' : 'cursor-default'}`}
+                aria-disabled={!isExternal}
+              >
               {/* Image with overlay */}
               <div className="relative overflow-hidden mb-6" style={{ aspectRatio: '16/10' }}>
                 <div className="absolute inset-0 bg-[#0D0B09]/50 z-10 group-hover:bg-[#0D0B09]/30 transition-colors duration-700" />
@@ -128,13 +139,17 @@ export default function News() {
               <p className="text-[0.68rem] font-light leading-[1.9] text-mist/80 flex-1">
                 {a.excerpt}
               </p>
-              <div className="mt-5">
-                <span className="label text-[#B8922C] link-underline" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
-                  Read More →
-                </span>
-              </div>
+              {isExternal && (
+                <div className="mt-5">
+                  <span className="label text-[#B8922C] link-underline" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+                    Read More →
+                  </span>
+                </div>
+              )}
+              </a>
             </motion.article>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

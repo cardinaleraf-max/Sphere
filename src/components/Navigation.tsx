@@ -7,9 +7,9 @@ const sections = [
   { num: 'I',   label: 'About',     href: '#about' },
   { num: 'II',  label: 'Events',    href: '#events' },
   { num: 'III', label: 'Concierge', href: '#concierge' },
-  { num: 'IV',  label: 'Team',      href: '#team' },
-  { num: 'V',   label: 'News',      href: '#news' },
-  { num: 'VI',  label: 'Contact',   href: '#contact' },
+  // { num: 'IV',  label: 'Team',      href: '#team' }, // Sezione Team nascosta — riattivare in futuro
+  { num: 'IV',  label: 'News',      href: '#news' },
+  { num: 'V',   label: 'Contact',   href: '#contact' },
 ]
 
 export default function Navigation() {

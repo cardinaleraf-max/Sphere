@@ -161,26 +161,15 @@ export default function About() {
       <div className="rule" style={{ opacity: 0.08 }} />
       <div className="grid lg:grid-cols-[440px_1fr]">
 
-        {/* Left: full-height stacked images */}
-        <FadeIn delay={0.2} className="hidden lg:grid grid-rows-2 min-h-[700px]">
-          <div className="relative overflow-hidden">
-            <Image
-              src="/images/about_heritage.jpg"
-              alt="Saudi architectural heritage"
-              fill
-              className="object-cover"
-              sizes="440px"
-            />
-          </div>
-          <div className="relative overflow-hidden">
-            <Image
-              src="/images/pr_b.jpg"
-              alt="Saudi cultural elegance"
-              fill
-              className="object-cover object-top"
-              sizes="440px"
-            />
-          </div>
+        {/* Left: single full-height portrait image */}
+        <FadeIn delay={0.2} className="hidden lg:block relative min-h-[700px] overflow-hidden">
+          <Image
+            src="/images/Heritage.2.0.png"
+            alt="S.P.H.E.R.E. heritage — Italian elegance meets Saudi culture"
+            fill
+            className="object-cover"
+            sizes="440px"
+          />
         </FadeIn>
 
         <div className="px-site py-10 lg:py-[clamp(5rem,10vw,10rem)]">
