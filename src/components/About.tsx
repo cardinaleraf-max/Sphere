@@ -156,7 +156,41 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── Acrostic ── */}
+        {/* ── Statement ── replaces the acrostic per client request */}
+        <div className="border-t border-ivory/10 pt-[clamp(3rem,7vw,7rem)] pb-[clamp(3rem,7vw,7rem)] grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-24 items-start">
+          <div>
+            <FadeIn className="mb-8 flex items-center gap-4">
+              <div className="rule-gold w-6 flex-shrink-0" />
+              <span className="label text-[#B8922C]">Our Philosophy</span>
+            </FadeIn>
+            <div className="overflow-hidden">
+              <ClipReveal>
+                <h2 className="font-display italic font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-ivory">
+                  Where Hospitality
+                </h2>
+              </ClipReveal>
+            </div>
+            <div className="overflow-hidden">
+              <ClipReveal delay={0.12}>
+                <h2 className="font-display font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-[#B8922C]">
+                  Meets Influence.
+                </h2>
+              </ClipReveal>
+            </div>
+          </div>
+
+          <FadeIn delay={0.2} className="lg:pt-[clamp(2rem,5vw,5rem)]">
+            <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-md">
+              We curate exceptional experiences for discerning individuals, global brands
+              and visionary organizations. Combining operational excellence with thoughtful
+              design, we transform every interaction into a meaningful experience.
+            </p>
+          </FadeIn>
+        </div>
+
+        {/* ── Acrostic ── HIDDEN per client request (kept in case they change their mind) */}
+        {false && (
+        <>
         <FadeIn className="mb-6 flex items-center gap-4">
           <div className="rule-gold w-6 flex-shrink-0" />
           <span className="label text-[#B8922C]">What Our Name Means</span>
@@ -190,6 +224,8 @@ export default function About() {
             </motion.div>
           ))}
         </div>
+        </>
+        )}
       </div>
 
       {/* ── Heritage ── white, images LEFT */}
