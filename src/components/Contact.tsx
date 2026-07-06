@@ -21,8 +21,35 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [accepted, setAccepted] = useState(false)
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const headRef = useRef(null)
   const headInView = useInView(headRef, { once: true, margin: '-80px' })
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!accepted || sending) return
+    setSending(true)
+    setError('')
+    try {
+      const res = await fetch('/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          privacy: 'true',
+        }),
+      })
+      if (!res.ok) throw new Error('bad status')
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSending(false)
+    }
+  }
 
   return (
     <section id="contact" className="bg-night text-ivory">
@@ -80,7 +107,7 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={e => { e.preventDefault(); setSent(true) }} className="space-y-10">
+              <form onSubmit={handleSubmit} className="space-y-10">
                 {[
                   { key: 'name', label: 'Name', type: 'text', placeholder: 'Your full name' },
                   { key: 'email', label: 'Email', type: 'email', placeholder: 'your@email.com' },
@@ -134,12 +161,16 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  disabled={!accepted}
-                  className={`label link-underline group flex items-center gap-3 transition-opacity duration-300 ${accepted ? 'text-ivory opacity-100' : 'text-ivory/30 opacity-40 cursor-not-allowed'}`}
+                  disabled={!accepted || sending}
+                  className={`label link-underline group flex items-center gap-3 transition-opacity duration-300 ${accepted && !sending ? 'text-ivory opacity-100' : 'text-ivory/30 opacity-40 cursor-not-allowed'}`}
                 >
-                  Send Request
-                  <motion.span whileHover={{ x: accepted ? 4 : 0 }} className="inline-block">→</motion.span>
+                  {sending ? 'Sending…' : 'Send Request'}
+                  <motion.span whileHover={{ x: accepted && !sending ? 4 : 0 }} className="inline-block">→</motion.span>
                 </button>
+
+                {error && (
+                  <p className="text-[0.85rem] font-light text-red-400/80" role="alert">{error}</p>
+                )}
               </form>
             )}
           </FadeIn>
