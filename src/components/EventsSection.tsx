@@ -2,38 +2,31 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/language-context'
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
-const subs = [
+const subImages = [
   {
     idx: '01',
-    title: 'Creative Direction & Event Design',
-    body: 'From concept to scenography — we build the visual soul of each occasion with aesthetic precision and narrative purpose.',
     img: '/images/services_c.jpg',
     imgAlt: 'Gala event — crystal chandeliers',
     pos: 'object-[center_45%]',
   },
   {
     idx: '02',
-    title: 'Production & Logistics Management',
-    body: 'Flawless execution behind the scenes. Every technical element, every timeline, every partner — orchestrated invisibly.',
     img: '/images/pr_main.jpg',
     imgAlt: 'Event production backstage',
     pos: 'object-[center_72%]',
   },
   {
     idx: '03',
-    title: 'F&B Consultancy & Catering',
-    body: 'Culinary experiences designed to reflect the spirit of each event — from curated menus to immersive dining concepts with Michelin-starred chefs.',
     img: '/images/concierge_main.jpg',
     imgAlt: 'Luxury dining experience',
     pos: 'object-[center_60%]',
   },
   {
     idx: '04',
-    title: 'Guest Management & Protocol',
-    body: 'Every guest arrives feeling like the only guest. Each touchpoint handled with quiet, unwavering excellence.',
     img: '/images/12.jpg',
     imgAlt: 'VIP guest experience',
     pos: 'object-[center_65%]',
@@ -69,6 +62,8 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 export default function EventsSection() {
   const listRef = useRef(null)
   const listInView = useInView(listRef, { once: true, margin: '-60px' })
+  const { t } = useLanguage()
+  const subs = subImages.map((img, i) => ({ ...img, ...t.events.cards[i] }))
 
   return (
     <section id="events" className="bg-night text-ivory">
@@ -88,7 +83,7 @@ export default function EventsSection() {
             <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">II</span>
             <div className="mb-3">
               <div className="rule-gold w-6 mb-3" />
-              <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Events</span>
+              <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.events.label}</span>
             </div>
           </FadeIn>
 
@@ -96,14 +91,14 @@ export default function EventsSection() {
             <div className="overflow-hidden">
               <ClipReveal>
                 <h2 className="font-display italic font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.0] text-ivory">
-                  Events &amp;
+                  {t.events.line1}
                 </h2>
               </ClipReveal>
             </div>
             <div className="overflow-hidden">
               <ClipReveal delay={0.1}>
                 <h2 className="font-display font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.0] text-[#B8922C]">
-                  Elevated Hospitality.
+                  {t.events.line2}
                 </h2>
               </ClipReveal>
             </div>
@@ -111,13 +106,12 @@ export default function EventsSection() {
 
           <FadeIn delay={0.15} className="flex items-center gap-4 mb-8">
             <span className="rule-gold w-3 inline-block" />
-            <span className="font-display italic text-base text-[#C8BEA8]">A Taste of Beauty</span>
+            <span className="font-display italic text-base text-[#C8BEA8]">{t.events.tagline}</span>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-md">
-              S.P.H.E.R.E. offers a suite of services that adapt with grace to the scale and spirit
-              of each occasion. Everything is thoughtfully attuned, quietly powerful and unmistakably yours.
+              {t.events.intro}
             </p>
           </FadeIn>
         </div>
@@ -180,9 +174,7 @@ export default function EventsSection() {
         <FadeIn delay={0.3} className="mt-[clamp(4rem,8vw,8rem)]">
           <div className="max-w-2xl border-t border-[#B8922C]/20 pt-10">
             <blockquote className="font-display italic text-[1.1rem] font-light text-[#C8BEA8] leading-relaxed">
-              "At S.P.H.E.R.E., creative vision is brought to life by a team of international professionals,
-              each bringing expertise and global perspective. From scenography and lighting to music, textures
-              and materials — every detail is carefully curated to reflect the unique soul of each occasion."
+              {t.events.quote}
             </blockquote>
           </div>
         </FadeIn>

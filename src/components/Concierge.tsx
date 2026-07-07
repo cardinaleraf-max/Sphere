@@ -2,28 +2,23 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/language-context'
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
-const cards = [
+const cardImages = [
   {
     num: '01',
-    title: 'Business Concierge',
-    body: 'Corporate hospitality, executive travel, private venue sourcing, protocol management and high-level event facilitation for discerning professionals.',
     img: '/images/concierge_portrait.jpg',
     imgAlt: 'Private jet concierge service',
   },
   {
     num: '02',
-    title: 'Lifestyle Management',
-    body: 'Lifestyle Management is a highly personalized service designed to simplify and enhance every aspect of our members’ lives.',
     img: '/images/14.jpg',
     imgAlt: 'Lifestyle management experience',
   },
   {
     num: '03',
-    title: 'Travel and Bespoke Experience',
-    body: 'Bespoke experiences for your most valued relationships from exclusive access and curated journeys to private events that leave a lasting impression.',
     img: '/images/concierge_b.jpg',
     imgAlt: 'Private luxury travel',
   },
@@ -47,6 +42,8 @@ export default function Concierge() {
   const cardsInView = useInView(cardsRef, { once: true, margin: '-60px' })
   const quoteRef = useRef(null)
   const quoteInView = useInView(quoteRef, { once: true, margin: '-80px' })
+  const { t } = useLanguage()
+  const cards = cardImages.map((img, i) => ({ ...img, ...t.concierge.cards[i] }))
 
   return (
     <section id="concierge" className="bg-bone">
@@ -57,7 +54,7 @@ export default function Concierge() {
           <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" style={{ color: '#B8922C', opacity: 0.18 }} aria-hidden="true">III</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
-            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Concierge</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.concierge.label}</span>
           </div>
         </FadeIn>
 
@@ -69,7 +66,7 @@ export default function Concierge() {
             transition={{ duration: 1.8, ease: EASE }}
             className="font-display italic font-light text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] text-ink max-w-4xl"
           >
-            A Way of Living<br />Into Legacy.
+            {t.concierge.heading1}<br />{t.concierge.heading2}
           </motion.h2>
         </div>
 
@@ -77,15 +74,11 @@ export default function Concierge() {
         <FadeIn className="mb-[clamp(4rem,8vw,8rem)]">
           <div className="rule mb-10" />
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-            <blockquote className="font-display italic text-[1.3rem] font-light text-[#B8922C] leading-tight">
-              "We are the Quiet Curators<br />of your lifestyle."
+            <blockquote className="font-display italic text-[1.3rem] font-light text-[#B8922C] leading-tight whitespace-pre-line">
+              {t.concierge.quote}
             </blockquote>
             <p className="text-[0.9rem] font-light leading-[2] text-taupe">
-              With absolute discretion and refined intuition, we curate access to what is rare,
-              manage the everyday with elegance and make the extraordinary appear effortless.
-              Whether it is a last-minute travel arrangement, a table few can book, or a moment
-              designed for no one else but you — our approach remains the same: invisible
-              orchestration, deeply personal care and a commitment to excellence.
+              {t.concierge.intro}
             </p>
           </div>
         </FadeIn>

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLanguage } from '@/lib/language-context'
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
@@ -25,6 +26,7 @@ export default function Contact() {
   const [error, setError] = useState('')
   const headRef = useRef(null)
   const headInView = useInView(headRef, { once: true, margin: '-80px' })
+  const { t } = useLanguage()
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -45,7 +47,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('bad status')
       setSent(true)
     } catch {
-      setError('Something went wrong. Please try again or email us directly.')
+      setError(t.contact.errorMessage)
     } finally {
       setSending(false)
     }
@@ -60,7 +62,7 @@ export default function Contact() {
           <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">VI</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
-            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Contact</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.contact.label}</span>
           </div>
         </FadeIn>
 
@@ -72,7 +74,7 @@ export default function Contact() {
               transition={{ duration: 1.6, ease: EASE }}
               className="font-display italic font-light text-[clamp(2.5rem,7vw,7rem)] leading-[0.95] text-ivory"
             >
-              Whispers of
+              {t.contact.line1}
             </motion.h2>
           </div>
           <div className="overflow-hidden">
@@ -82,12 +84,12 @@ export default function Contact() {
               transition={{ duration: 1.6, delay: 0.1, ease: EASE }}
               className="font-display font-light text-[clamp(2.5rem,7vw,7rem)] leading-[0.95] text-[#B8922C]"
             >
-              Excellence.
+              {t.contact.line2}
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
             <p className="text-[0.92rem] font-light leading-[2] text-ivory/80 max-w-md mt-8">
-              How we challenge conventions and redefine the standards of the world's finest experiences.
+              {t.contact.subtitle}
             </p>
           </FadeIn>
         </div>
@@ -100,17 +102,17 @@ export default function Contact() {
             {sent ? (
               <div className="py-16">
                 <p className="font-display italic text-[1.5rem] text-[#B8922C] leading-tight mb-4">
-                  Your request has been received.
+                  {t.contact.sentTitle}
                 </p>
                 <p className="text-[0.9rem] font-light text-mist leading-[2]">
-                  A member of our team will be in touch with the discretion and care your enquiry deserves.
+                  {t.contact.sentBody}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-10">
                 {[
-                  { key: 'name', label: 'Name', type: 'text', placeholder: 'Your full name' },
-                  { key: 'email', label: 'Email', type: 'email', placeholder: 'your@email.com' },
+                  { key: 'name', label: t.contact.nameLabel, type: 'text', placeholder: t.contact.namePlaceholder },
+                  { key: 'email', label: t.contact.emailLabel, type: 'email', placeholder: t.contact.emailPlaceholder },
                 ].map(f => (
                   <div key={f.key}>
                     <label className="label text-[#B8922C] block mb-4">{f.label}</label>
@@ -125,11 +127,11 @@ export default function Contact() {
                   </div>
                 ))}
                 <div>
-                  <label className="label text-[#B8922C] block mb-4">Message</label>
+                  <label className="label text-[#B8922C] block mb-4">{t.contact.messageLabel}</label>
                   <textarea
                     required
                     rows={4}
-                    placeholder="Tell us about your enquiry..."
+                    placeholder={t.contact.messagePlaceholder}
                     value={form.message}
                     onChange={e => setForm(v => ({ ...v, message: e.target.value }))}
                     className="w-full bg-transparent border-b border-ivory/30 pb-3 text-[0.9rem] font-light text-ivory placeholder:text-mist/60 focus:outline-none focus:border-[#B8922C]/70 transition-colors duration-400 resize-none"
@@ -151,11 +153,11 @@ export default function Contact() {
                     )}
                   </button>
                   <p className="text-[0.85rem] font-light leading-[1.8] text-ivory/60">
-                    I have read and accept the{' '}
+                    {t.contact.privacyPrefix}
                     <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[#B8922C] hover:text-ivory transition-colors duration-200 underline underline-offset-2">
-                      Privacy Policy
+                      {t.contact.privacyLink}
                     </a>
-                    {' '}and consent to the processing of my personal data.
+                    {t.contact.privacySuffix}
                   </p>
                 </div>
 
@@ -164,8 +166,8 @@ export default function Contact() {
                   disabled={!accepted || sending}
                   className={`label link-underline group flex items-center gap-3 transition-opacity duration-300 ${accepted && !sending ? 'text-ivory opacity-100' : 'text-ivory/30 opacity-40 cursor-not-allowed'}`}
                 >
-                  {sending ? 'Sending…' : 'Send Request'}
-                  <motion.span whileHover={{ x: accepted && !sending ? 4 : 0 }} className="inline-block">→</motion.span>
+                  {sending ? t.contact.sendingLabel : t.contact.sendLabel}
+                  <motion.span whileHover={{ x: accepted && !sending ? 4 : 0 }} className="inline-block rtl:-scale-x-100">→</motion.span>
                 </button>
 
                 {error && (
@@ -178,12 +180,12 @@ export default function Contact() {
           {/* Info */}
           <FadeIn delay={0.35} className="space-y-10">
             <div>
-              <span className="label text-[#B8922C] block mb-3">Office</span>
-              <p className="text-[0.9rem] font-light text-ivory/85">Riyadh, Kingdom of Saudi Arabia</p>
+              <span className="label text-[#B8922C] block mb-3">{t.contact.officeLabel}</span>
+              <p className="text-[0.9rem] font-light text-ivory/85">{t.contact.officeValue}</p>
             </div>
             <div className="rule" style={{ opacity: 0.18 }} />
             <div>
-              <span className="label text-[#B8922C] block mb-3">Email</span>
+              <span className="label text-[#B8922C] block mb-3">{t.contact.emailColLabel}</span>
               <a href="mailto:info@sphere.com.sa"
                 className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
                 info@sphere.com.sa
@@ -191,7 +193,7 @@ export default function Contact() {
             </div>
             <div className="rule" style={{ opacity: 0.18 }} />
             <div>
-              <span className="label text-[#B8922C] block mb-3">Follow</span>
+              <span className="label text-[#B8922C] block mb-3">{t.contact.followLabel}</span>
               <a href="https://www.instagram.com/sphere.ksa" target="_blank" rel="noopener noreferrer"
                 className="text-[0.9rem] font-light text-ivory/85 hover:text-ivory transition-colors duration-300 link-underline">
                 @sphere.ksa

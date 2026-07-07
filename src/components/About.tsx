@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react'
 import { motion, useInView, useMotionValue, useScroll, useMotionValueEvent, animate } from 'framer-motion'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/language-context'
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
@@ -126,6 +127,7 @@ function RouletteLogo() {
 export default function About() {
   const acrosticRef = useRef(null)
   const acrosticInView = useInView(acrosticRef, { once: true, margin: '-60px' })
+  const { t } = useLanguage()
 
   return (
     <section id="about" className="bg-night text-ivory">
@@ -138,15 +140,13 @@ export default function About() {
               <span className="section-num text-[clamp(5rem,15vw,15rem)] leading-none" style={{ color: '#B8922C', opacity: 0.18 }} aria-hidden="true">I</span>
               <div className="mb-4">
                 <div className="rule-gold w-6 mb-3" />
-                <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>About</span>
+                <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.about.label}</span>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-xl">
-                S.P.H.E.R.E. has no edges, no weak points, and no hierarchy. It represents completeness,
-                balance, and unity: values that define how we operate and how we serve.
-                Everything within a sphere is connected, and every connection matters.
+                {t.about.intro}
               </p>
             </FadeIn>
           </div>
@@ -161,19 +161,19 @@ export default function About() {
           <div>
             <FadeIn className="mb-8 flex items-center gap-4">
               <div className="rule-gold w-6 flex-shrink-0" />
-              <span className="label text-[#B8922C]">Our Philosophy</span>
+              <span className="label text-[#B8922C]">{t.about.philosophyLabel}</span>
             </FadeIn>
             <div className="overflow-hidden">
               <ClipReveal>
                 <h2 className="font-display italic font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-ivory">
-                  Where Hospitality
+                  {t.about.philosophyLine1}
                 </h2>
               </ClipReveal>
             </div>
             <div className="overflow-hidden">
               <ClipReveal delay={0.12}>
                 <h2 className="font-display font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-[#B8922C]">
-                  Meets Influence.
+                  {t.about.philosophyLine2}
                 </h2>
               </ClipReveal>
             </div>
@@ -181,9 +181,7 @@ export default function About() {
 
           <FadeIn delay={0.2} className="lg:pt-[clamp(2rem,5vw,5rem)]">
             <p className="text-[0.9rem] font-light leading-[2] text-mist max-w-md">
-              We curate exceptional experiences for discerning individuals, global brands
-              and visionary organizations. Combining operational excellence with thoughtful
-              design, we transform every interaction into a meaningful experience.
+              {t.about.philosophyBody}
             </p>
           </FadeIn>
         </div>
@@ -246,34 +244,32 @@ export default function About() {
 
         <div className="px-site py-10 lg:py-[clamp(5rem,10vw,10rem)]">
           <FadeIn className="mb-8">
-            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>Heritage</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.about.heritageLabel}</span>
           </FadeIn>
           <div className="overflow-hidden">
             <ClipReveal>
               <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-ink">
-                Elegance Crafted
+                {t.about.heritageLine1}
               </h2>
             </ClipReveal>
           </div>
           <div className="overflow-hidden">
             <ClipReveal delay={0.1}>
               <h2 className="font-display font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-[#B8922C]">
-                in Italy, Rooted
+                {t.about.heritageLine2}
               </h2>
             </ClipReveal>
           </div>
           <div className="overflow-hidden">
             <ClipReveal delay={0.18}>
               <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-ink">
-                in Kingdom Culture.
+                {t.about.heritageLine3}
               </h2>
             </ClipReveal>
           </div>
           <FadeIn delay={0.3} className="mt-10 mb-[clamp(4rem,8vw,8rem)]">
             <p className="text-[0.9rem] font-light leading-[2] text-taupe max-w-sm">
-              S.P.H.E.R.E. brings together the timeless elegance and refined taste of Italy
-              with an authentic Saudi touch — creating experiences that feel both international
-              and deeply local.
+              {t.about.heritageBody}
             </p>
           </FadeIn>
 
@@ -283,19 +279,14 @@ export default function About() {
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <FadeIn>
-              <span className="label text-[#B8922C] block mb-8">Kingdom</span>
+              <span className="label text-[#B8922C] block mb-8">{t.about.kingdomLabel}</span>
               <blockquote className="font-display italic text-[1.05rem] font-light text-[#B8922C] leading-relaxed">
-                "What sets us apart is our deep understanding of Saudi culture,
-                traditions and expectations. We don't simply work in the region:
-                we are part of it."
+                {t.about.kingdomQuote}
               </blockquote>
             </FadeIn>
             <FadeIn delay={0.15}>
               <p className="text-[0.9rem] font-light leading-[2] text-taupe pt-[2.4rem]">
-                Inspired by Italian design, craftsmanship and attention to detail,
-                we shape events with style, balance and effortless sophistication.
-                This fusion allows us to deliver events that are visually striking,
-                culturally aligned, and flawlessly executed.
+                {t.about.kingdomBody}
               </p>
             </FadeIn>
           </div>

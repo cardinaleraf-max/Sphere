@@ -1,34 +1,23 @@
 'use client'
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLanguage } from '@/lib/language-context'
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
-const articles = [
+const articleMeta = [
   {
     idx: '01',
-    date: 'January 2026',
-    category: 'Press',
-    title: "Saudi Arabia Unveils the 'Dream of the Desert' Sleeper Train",
-    excerpt: 'The Kingdom launches its first ultra-luxury sleeper train — carrying 66 guests across 1,300km of desert in a journey devoted to slow travel and immersive cultural heritage.',
     img: '/images/dream-of-the-desert.jpg',
     href: 'https://globetrender.com/2026/01/14/saudi-arabia-dream-of-the-desert-sleeper-train/',
   },
   {
     idx: '02',
-    date: 'April 2025',
-    category: 'Insight',
-    title: 'The Art of Invisible Orchestration',
-    excerpt: 'What makes a truly exceptional event is rarely what guests notice — it is everything they never had to think about. An exploration of our philosophy.',
     img: '/images/concierge_main.jpg',
     href: '#',
   },
   {
     idx: '03',
-    date: 'February 2025',
-    category: 'Press',
-    title: 'Sphere Named Among Riyadh\'s Premier Hospitality Firms',
-    excerpt: 'Recognised for its distinctive approach to luxury events and concierge services, Sphere continues to set a new benchmark for elite hospitality in the Kingdom.',
     img: '/images/about_heritage.jpg',
     href: '#',
   },
@@ -52,6 +41,8 @@ export default function News() {
   const cardsInView = useInView(cardsRef, { once: true, margin: '-60px' })
   const headRef = useRef(null)
   const headInView = useInView(headRef, { once: true, margin: '-80px' })
+  const { t } = useLanguage()
+  const articles = articleMeta.map((meta, i) => ({ ...meta, ...t.news.articles[i] }))
 
   return (
     <section id="news" className="bg-night text-ivory">
@@ -62,7 +53,7 @@ export default function News() {
           <span className="section-num text-[clamp(4rem,12vw,12rem)] leading-none" aria-hidden="true">V</span>
           <div className="mb-3">
             <div className="rule-gold w-6 mb-3" />
-            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>News</span>
+            <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.news.label}</span>
           </div>
         </FadeIn>
 
@@ -75,7 +66,7 @@ export default function News() {
               transition={{ duration: 1.6, ease: EASE }}
               className="font-display italic font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.0] text-ivory"
             >
-              Stories &amp;
+              {t.news.line1}
             </motion.h2>
           </div>
           <div className="overflow-hidden">
@@ -85,12 +76,12 @@ export default function News() {
               transition={{ duration: 1.6, delay: 0.1, ease: EASE }}
               className="font-display font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.0] text-[#B8922C]"
             >
-              Perspectives.
+              {t.news.line2}
             </motion.h2>
           </div>
           <FadeIn delay={0.3}>
             <p className="text-[0.9rem] font-light leading-[2] text-mist/80 max-w-md mt-8">
-              Moments captured, ideas shared, and insights from the world of luxury hospitality and experiential design.
+              {t.news.intro}
             </p>
           </FadeIn>
         </div>
@@ -142,7 +133,7 @@ export default function News() {
               {isExternal && (
                 <div className="mt-5">
                   <span className="label text-[#B8922C] link-underline" style={{ fontSize: '0.72rem', letterSpacing: '0.28em' }}>
-                    Read More →
+                    {t.news.readMore}
                   </span>
                 </div>
               )}

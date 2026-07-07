@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/lib/language-context";
 
 const EASE = [0.76, 0, 0.24, 1] as const;
 
@@ -50,6 +51,7 @@ function FadeIn({
 }
 
 export function HeroGeometric() {
+  const { t } = useLanguage();
   const go = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -79,7 +81,7 @@ export function HeroGeometric() {
               className="font-display italic font-light leading-[0.92]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
-              A Name That Defines
+              {t.hero.line1}
             </h1>
           </ClipLine>
           <ClipLine delay={0.62}>
@@ -87,7 +89,7 @@ export function HeroGeometric() {
               className="font-display font-light leading-[0.92]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#B8922C" }}
             >
-              Our Commitment
+              {t.hero.line2}
             </h1>
           </ClipLine>
           <ClipLine delay={0.74}>
@@ -95,7 +97,7 @@ export function HeroGeometric() {
               className="font-display italic font-light leading-[0.92]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
-              to Excellence.
+              {t.hero.line3}
             </h1>
           </ClipLine>
         </div>
@@ -109,8 +111,9 @@ export function HeroGeometric() {
             className="font-display italic font-light leading-snug max-w-sm"
             style={{ fontSize: "clamp(0.9rem,1.5vw,1.28rem)", color: "#B8922C" }}
           >
-            "We are the Masters of Haute Living
-            <br />& Whisperers of Excellence."
+            {t.hero.quoteLine1}
+            <br />
+            {t.hero.quoteLine2}
           </p>
         </FadeIn>
 
