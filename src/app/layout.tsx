@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Bodoni_Moda, Public_Sans } from 'next/font/google'
+import { Bodoni_Moda, Public_Sans, Noto_Kufi_Arabic } from 'next/font/google'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const bodoniModa = Bodoni_Moda({
@@ -14,6 +15,13 @@ const publicSans = Public_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
   variable: '--font-public',
+  display: 'swap',
+})
+
+const notoKufiArabic = Noto_Kufi_Arabic({
+  subsets: ['arabic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-noto-kufi',
   display: 'swap',
 })
 
@@ -101,13 +109,13 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bodoniModa.variable} ${publicSans.variable}`}>
+    <html lang="en" className={`${bodoniModa.variable} ${publicSans.variable} ${notoKufiArabic.variable}`}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )

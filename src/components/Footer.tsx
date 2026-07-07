@@ -1,5 +1,7 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLanguage } from '@/lib/language-context'
 
 function InstagramIcon() {
   return (
@@ -12,8 +14,14 @@ function InstagramIcon() {
 }
 
 export default function Footer() {
+  const { t, dir, locale } = useLanguage()
+
   return (
-    <footer className="bg-night border-t border-[#B8922C]/15">
+    <footer
+      dir={dir}
+      lang={locale}
+      className={`bg-night border-t border-[#B8922C]/15 ${locale === 'ar' ? 'lang-ar' : ''}`}
+    >
       <div className="px-site py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
 
         {/* Logo */}
@@ -32,14 +40,14 @@ export default function Footer() {
             href="https://www.instagram.com/sphere.ksa"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Sphere on Instagram"
+            aria-label={t.footer.instagramAriaLabel}
             className="text-[#B8922C]/60 hover:text-[#B8922C] transition-colors duration-300"
           >
             <InstagramIcon />
           </a>
           <p className="label text-mist/80">© {new Date().getFullYear()} S.P.H.E.R.E.</p>
           <Link href="/privacy" className="label text-mist/50 hover:text-mist/80 transition-colors duration-300">
-            Privacy
+            {t.footer.privacy}
           </Link>
         </div>
       </div>

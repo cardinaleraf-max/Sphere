@@ -14,6 +14,7 @@
 
   --font-display: var(--font-bodoni), 'Bodoni MT', Didot, Georgia, serif;
   --font-body:    var(--font-public), 'Public Sans', system-ui, sans-serif;
+  --font-arabic:  var(--font-noto-kufi), 'Noto Kufi Arabic', Tahoma, sans-serif;
 }
 
 /* ── Keyframes ── */
@@ -71,6 +72,19 @@ body {
   letter-spacing: 0.38em;
   text-transform: uppercase;
   font-weight: 400;
+}
+
+/* ── Arabic / RTL override ──
+   Scoped to header, mobile menu and footer: Arabic script doesn't
+   support letter-spacing/uppercase, so those are reset locally
+   instead of touching the global (Latin) typographic scale. */
+.lang-ar,
+.lang-ar * {
+  font-family: var(--font-arabic);
+}
+.lang-ar .label {
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 /* ── Section index number ── */
