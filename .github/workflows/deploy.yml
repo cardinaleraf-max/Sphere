@@ -1,4 +1,4 @@
-name: Deploy via FTP
+name: Deploy via SFTP
 
 on:
   push:
@@ -7,14 +7,14 @@ on:
 
 # Evita due deploy sovrapposti sullo stesso server
 concurrency:
-  group: ftp-deploy
+  group: sftp-deploy
   cancel-in-progress: false
 
 jobs:
-  ftp-deploy:
+  sftp-deploy:
     runs-on: ubuntu-latest
     # Il deploy parte solo quando la variabile di repo DEPLOY_ENABLED è "true".
-    # Finché non hai le credenziali FTP nei Secrets, lascia la variabile spenta
+    # Finché non hai le credenziali nei Secrets, lascia la variabile spenta
     # (o assente): il job viene saltato, non fallisce.
     if: ${{ vars.DEPLOY_ENABLED == 'true' }}
 
@@ -34,49 +34,17 @@ jobs:
       - name: Build project (static export -> ./out)
         run: npm run build
 
-      # Il server FTP scarta a intermittenza le connessioni dai runner GitHub
-      # ("Timeout control socket"): ritentiamo in automatico fino a 3 volte
-      # con attesa crescente, così il deploy si auto-risolve senza re-run manuali.
-      - name: Deploy to FTP (tentativo 1)
-        id: ftp1
-        continue-on-error: true
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      # Questo hosting accetta solo SFTP (porta SSH), non FTP semplice.
+      # Autenticazione con password: riusa gli stessi Secrets FTP_* già impostati.
+      # La porta SSH è quella indicata da cPanel (default 22); se il tuo host
+      # usa una porta diversa, impostala nel Secret opzionale SSH_PORT.
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: /public_html/
-          timeout: "60000"
-
-      - name: Attesa prima del 2° tentativo
-        if: steps.ftp1.outcome == 'failure'
-        run: sleep 30
-
-      - name: Deploy to FTP (tentativo 2)
-        id: ftp2
-        if: steps.ftp1.outcome == 'failure'
-        continue-on-error: true
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: /public_html/
-          timeout: "60000"
-
-      - name: Attesa prima del tentativo finale
-        if: steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
-        run: sleep 60
-
-      - name: Deploy to FTP (tentativo finale)
-        if: steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: /public_html/
-          timeout: "60000"
+          port: ${{ secrets.SSH_PORT || '22' }}
+          local_path: './out/*'
+          remote_path: '/public_html'
+          sftpArgs: '-o ConnectTimeout=15'
