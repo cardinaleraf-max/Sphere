@@ -14,8 +14,6 @@ jobs:
   sftp-deploy:
     runs-on: ubuntu-latest
     # Il deploy parte solo quando la variabile di repo DEPLOY_ENABLED è "true".
-    # Finché non hai le credenziali nei Secrets, lascia la variabile spenta
-    # (o assente): il job viene saltato, non fallisce.
     if: ${{ vars.DEPLOY_ENABLED == 'true' }}
 
     steps:
@@ -34,17 +32,25 @@ jobs:
       - name: Build project (static export -> ./out)
         run: npm run build
 
-      # Questo hosting accetta solo SFTP (porta SSH), non FTP semplice.
-      # Autenticazione con password: riusa gli stessi Secrets FTP_* già impostati.
-      # La porta SSH è quella indicata da cPanel (default 22); se il tuo host
-      # usa una porta diversa, impostala nel Secret opzionale SSH_PORT.
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.SSH_PORT || '22' }}
-          local_path: './out/*'
-          remote_path: '/public_html'
-          sftpArgs: '-o ConnectTimeout=15'
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      # L'account cPanel espone SOLO il sottosistema SFTP (niente shell/rsync).
+      # `lftp mirror -R` gira sul runner e parla puro protocollo SFTP: crea le
+      # cartelle e carica i file senza richiedere accesso shell sul server.
+      # La porta SSH è quella di cPanel (default 22); override col Secret SSH_PORT.
+      - name: Deploy via SFTP (lftp mirror)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
+        run: |
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -p "$SSH_PORT" "sftp://$FTP_SERVER" <<'EOF'
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          set net:timeout 20
+          set net:reconnect-interval-base 10
+          mirror -R --verbose --parallel=2 ./out/ /public_html/
+          bye
+          EOF
