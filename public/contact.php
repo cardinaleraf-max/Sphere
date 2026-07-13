@@ -74,11 +74,18 @@ function sphere_email(string $eyebrow, string $heading, string $bodyHtml): strin
 HTML;
 }
 
-// Header MIME per mail HTML
+// Header MIME per mail HTML.
+// Date + Message-ID coerenti col dominio migliorano la reputazione presso
+// i filtri antispam (Gmail/Outlook) ed evitano che la conferma finisca in spam.
 function html_headers(string $fromName, string $from, string $replyTo = ''): string {
+    $domain = substr(strrchr($from, '@'), 1) ?: 'localhost';
+    $msgId  = '<' . bin2hex(random_bytes(12)) . '@' . $domain . '>';
     $h  = "MIME-Version: 1.0\r\n";
     $h .= "Content-Type: text/html; charset=UTF-8\r\n";
     $h .= "From: {$fromName} <{$from}>\r\n";
+    $h .= "Date: " . date('r') . "\r\n";
+    $h .= "Message-ID: {$msgId}\r\n";
+    $h .= "X-Mailer: Sphere-Contact\r\n";
     if ($replyTo !== '') $h .= "Reply-To: {$replyTo}\r\n";
     return $h;
 }
@@ -108,7 +115,8 @@ $admin_ok = mail(
     $admin_to,
     'New enquiry from the Sphere website',
     $admin_html,
-    html_headers($from_name, $from, "{$name} <{$email}>")
+    html_headers($from_name, $from, "{$name} <{$email}>"),
+    "-f{$from}"
 );
 
 // ── 2) Mail di CONFERMA all'UTENTE ──────────────────────────────
@@ -125,7 +133,8 @@ mail(
     $email,
     'We have received your enquiry — Sphere',
     $user_html,
-    html_headers($from_name, $from, $from)
+    html_headers($from_name, $from, $from),
+    "-f{$from}"
 );
 
 // ── Risposta al form ────────────────────────────────────────────
