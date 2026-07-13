@@ -59,7 +59,7 @@ export default function News() {
 
         {/* Heading */}
         <div ref={headRef} className="mb-[clamp(4rem,8vw,8rem)] max-w-3xl">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
@@ -69,7 +69,7 @@ export default function News() {
               {t.news.line1}
             </motion.h2>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}

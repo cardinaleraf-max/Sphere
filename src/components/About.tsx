@@ -163,14 +163,14 @@ export default function About() {
               <div className="rule-gold w-6 flex-shrink-0" />
               <span className="label text-[#B8922C]">{t.about.philosophyLabel}</span>
             </FadeIn>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pb-6 -mb-6">
               <ClipReveal>
                 <h2 className="font-display italic font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.15] text-ivory">
                   {t.about.philosophyLine1}
                 </h2>
               </ClipReveal>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pb-6 -mb-6">
               <ClipReveal delay={0.12}>
                 <h2 className="font-display font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.15] text-[#B8922C]">
                   {t.about.philosophyLine2}
@@ -246,21 +246,21 @@ export default function About() {
           <FadeIn className="mb-8">
             <span className="label text-[#B8922C]" style={{ fontSize: '1.1rem', letterSpacing: '0.22em' }}>{t.about.heritageLabel}</span>
           </FadeIn>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <ClipReveal>
               <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-ink">
                 {t.about.heritageLine1}
               </h2>
             </ClipReveal>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <ClipReveal delay={0.1}>
               <h2 className="font-display font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-[#B8922C]">
                 {t.about.heritageLine2}
               </h2>
             </ClipReveal>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <ClipReveal delay={0.18}>
               <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-ink">
                 {t.about.heritageLine3}

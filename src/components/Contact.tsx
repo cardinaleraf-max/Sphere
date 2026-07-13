@@ -67,7 +67,7 @@ export default function Contact() {
         </FadeIn>
 
         <div ref={headRef} className="mb-[clamp(4rem,8vw,8rem)]">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
@@ -77,7 +77,7 @@ export default function Contact() {
               {t.contact.line1}
             </motion.h2>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}

@@ -86,14 +86,14 @@ export default function PRMarketing() {
           </FadeIn>
 
           <div className="max-w-xl mb-[clamp(3rem,6vw,6rem)]">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pb-6 -mb-6">
               <ClipReveal>
                 <h2 className="font-display italic font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.15] text-ivory">
                   Brand Presence &amp;
                 </h2>
               </ClipReveal>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pb-6 -mb-6">
               <ClipReveal delay={0.1}>
                 <h2 className="font-display font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.15] text-[#B8922C]">
                   Experiential Visibility.

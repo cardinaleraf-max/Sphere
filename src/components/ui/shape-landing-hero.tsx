@@ -16,7 +16,7 @@ function ClipLine({
   className?: string;
 }) {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pb-6 -mb-6">
       <motion.div
         initial={{ clipPath: "inset(0 100% 0 0)" }}
         animate={{ clipPath: "inset(0 0% 0 0)" }}

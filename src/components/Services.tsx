@@ -80,7 +80,7 @@ export default function Services() {
               >
                 What We Do
               </motion.span>
-              <div className="overflow-hidden">
+              <div className="overflow-hidden pb-6 -mb-6">
                 <motion.h2
                   initial={{ clipPath: 'inset(0 100% 0 0)' }}
                   animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
