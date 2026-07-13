@@ -51,6 +51,21 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+
+      {/* Credit */}
+      <div className="px-site pb-8 -mt-2">
+        <p className="label text-mist/40 text-center" dir="ltr">
+          Designed by{' '}
+          <a
+            href="https://e-direct.it"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-mist/60 hover:text-[#B8922C] transition-colors duration-300"
+          >
+            e-direct.it
+          </a>
+        </p>
+      </div>
     </footer>
   )
 }

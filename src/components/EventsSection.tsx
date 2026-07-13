@@ -27,7 +27,7 @@ const subImages = [
   },
   {
     idx: '04',
-    img: '/images/578.png',
+    img: '/images/578.jpg',
     imgAlt: 'Exclusive event experience',
     pos: 'object-[center_50%]',
   },
