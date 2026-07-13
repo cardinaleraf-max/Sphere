@@ -9,9 +9,9 @@ const EASE = [0.76, 0, 0.24, 1] as const
 const subImages = [
   {
     idx: '01',
-    img: '/images/services_c.jpg',
-    imgAlt: 'Gala event — crystal chandeliers',
-    pos: 'object-[center_45%]',
+    img: '/images/12.jpg',
+    imgAlt: 'VIP guest experience',
+    pos: 'object-[center_65%]',
   },
   {
     idx: '02',
@@ -27,9 +27,9 @@ const subImages = [
   },
   {
     idx: '04',
-    img: '/images/12.jpg',
-    imgAlt: 'VIP guest experience',
-    pos: 'object-[center_65%]',
+    img: '/images/578.png',
+    imgAlt: 'Exclusive event experience',
+    pos: 'object-[center_50%]',
   },
 ]
 
