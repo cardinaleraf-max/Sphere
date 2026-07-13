@@ -64,7 +64,7 @@ export default function News() {
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
               transition={{ duration: 1.6, ease: EASE }}
-              className="font-display italic font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.0] text-ivory"
+              className="font-display italic font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.15] text-ivory"
             >
               {t.news.line1}
             </motion.h2>
@@ -74,7 +74,7 @@ export default function News() {
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
               transition={{ duration: 1.6, delay: 0.1, ease: EASE }}
-              className="font-display font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.0] text-[#B8922C]"
+              className="font-display font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.15] text-[#B8922C]"
             >
               {t.news.line2}
             </motion.h2>

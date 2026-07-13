@@ -23,7 +23,7 @@ export default function PrivacyContent() {
         </Link>
 
         {/* Title */}
-        <h1 className="font-display italic font-light text-[clamp(2.2rem,5vw,4rem)] leading-[1.0] text-ivory mb-4 mt-8">
+        <h1 className="font-display italic font-light text-[clamp(2.2rem,5vw,4rem)] leading-[1.15] text-ivory mb-4 mt-8">
           {p.title}
         </h1>
         <p className="label text-[#B8922C] mb-12" style={{ fontSize: '0.7rem' }}>

@@ -88,14 +88,14 @@ export default function PRMarketing() {
           <div className="max-w-xl mb-[clamp(3rem,6vw,6rem)]">
             <div className="overflow-hidden">
               <ClipReveal>
-                <h2 className="font-display italic font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.0] text-ivory">
+                <h2 className="font-display italic font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.15] text-ivory">
                   Brand Presence &amp;
                 </h2>
               </ClipReveal>
             </div>
             <div className="overflow-hidden">
               <ClipReveal delay={0.1}>
-                <h2 className="font-display font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.0] text-[#B8922C]">
+                <h2 className="font-display font-light text-[clamp(2.2rem,5vw,4.8rem)] leading-[1.15] text-[#B8922C]">
                   Experiential Visibility.
                 </h2>
               </ClipReveal>

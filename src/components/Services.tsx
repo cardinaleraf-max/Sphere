@@ -85,7 +85,7 @@ export default function Services() {
                   initial={{ clipPath: 'inset(0 100% 0 0)' }}
                   animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
                   transition={{ duration: 1.4, ease: EASE }}
-                  className="font-display italic font-light text-[clamp(2.5rem,7vw,6rem)] leading-[0.95] text-ink"
+                  className="font-display italic font-light text-[clamp(2.5rem,7vw,6rem)] leading-[1.15] text-ink"
                 >
                   Services
                 </motion.h2>

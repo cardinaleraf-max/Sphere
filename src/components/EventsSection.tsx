@@ -90,14 +90,14 @@ export default function EventsSection() {
           <div className="max-w-xl mb-[clamp(2rem,4vw,4rem)]">
             <div className="overflow-hidden">
               <ClipReveal>
-                <h2 className="font-display italic font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.0] text-ivory">
+                <h2 className="font-display italic font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.15] text-ivory">
                   {t.events.line1}
                 </h2>
               </ClipReveal>
             </div>
             <div className="overflow-hidden">
               <ClipReveal delay={0.1}>
-                <h2 className="font-display font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.0] text-[#B8922C]">
+                <h2 className="font-display font-light text-[clamp(2.4rem,5vw,5rem)] leading-[1.15] text-[#B8922C]">
                   {t.events.line2}
                 </h2>
               </ClipReveal>

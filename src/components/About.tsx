@@ -165,14 +165,14 @@ export default function About() {
             </FadeIn>
             <div className="overflow-hidden">
               <ClipReveal>
-                <h2 className="font-display italic font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-ivory">
+                <h2 className="font-display italic font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.15] text-ivory">
                   {t.about.philosophyLine1}
                 </h2>
               </ClipReveal>
             </div>
             <div className="overflow-hidden">
               <ClipReveal delay={0.12}>
-                <h2 className="font-display font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.05] text-[#B8922C]">
+                <h2 className="font-display font-light text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.15] text-[#B8922C]">
                   {t.about.philosophyLine2}
                 </h2>
               </ClipReveal>
@@ -229,7 +229,7 @@ export default function About() {
       {/* ── Heritage ── white, images LEFT */}
       <div id="heritage" className="bg-bone text-ink">
       <div className="rule" style={{ opacity: 0.08 }} />
-      <div className="grid lg:grid-cols-[440px_1fr]">
+      <div className="grid lg:grid-cols-[440px_minmax(0,1fr)]">
 
         {/* Left: single full-height portrait image (capped height on mobile) */}
         <FadeIn delay={0.2} className="relative h-[60vh] min-h-[360px] overflow-hidden lg:h-auto lg:min-h-[700px]">
@@ -248,21 +248,21 @@ export default function About() {
           </FadeIn>
           <div className="overflow-hidden">
             <ClipReveal>
-              <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-ink">
+              <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-ink">
                 {t.about.heritageLine1}
               </h2>
             </ClipReveal>
           </div>
           <div className="overflow-hidden">
             <ClipReveal delay={0.1}>
-              <h2 className="font-display font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-[#B8922C]">
+              <h2 className="font-display font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-[#B8922C]">
                 {t.about.heritageLine2}
               </h2>
             </ClipReveal>
           </div>
           <div className="overflow-hidden">
             <ClipReveal delay={0.18}>
-              <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.0] text-ink">
+              <h2 className="font-display italic font-light text-[clamp(2rem,5vw,4.8rem)] leading-[1.15] text-ink">
                 {t.about.heritageLine3}
               </h2>
             </ClipReveal>

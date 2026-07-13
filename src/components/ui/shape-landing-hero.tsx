@@ -78,7 +78,7 @@ export function HeroGeometric() {
         <div className="max-w-3xl">
           <ClipLine delay={0.5}>
             <h1
-              className="font-display italic font-light leading-[0.92]"
+              className="font-display italic font-light leading-[1.15]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
               {t.hero.line1}
@@ -86,7 +86,7 @@ export function HeroGeometric() {
           </ClipLine>
           <ClipLine delay={0.62}>
             <h1
-              className="font-display font-light leading-[0.92]"
+              className="font-display font-light leading-[1.15]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#B8922C" }}
             >
               {t.hero.line2}
@@ -94,7 +94,7 @@ export function HeroGeometric() {
           </ClipLine>
           <ClipLine delay={0.74}>
             <h1
-              className="font-display italic font-light leading-[0.92]"
+              className="font-display italic font-light leading-[1.15]"
               style={{ fontSize: "clamp(2.1rem,5.5vw,5.5rem)", color: "#F0EBE0" }}
             >
               {t.hero.line3}

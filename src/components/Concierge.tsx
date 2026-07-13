@@ -64,7 +64,7 @@ export default function Concierge() {
             initial={{ clipPath: 'inset(0 100% 0 0)' }}
             animate={quoteInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
             transition={{ duration: 1.8, ease: EASE }}
-            className="font-display italic font-light text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] text-ink max-w-4xl"
+            className="font-display italic font-light text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.15] text-ink max-w-4xl"
           >
             {t.concierge.heading1}<br />{t.concierge.heading2}
           </motion.h2>
