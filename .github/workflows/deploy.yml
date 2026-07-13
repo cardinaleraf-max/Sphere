@@ -51,6 +51,6 @@ jobs:
           set net:max-retries 3
           set net:timeout 20
           set net:reconnect-interval-base 10
-          mirror -R --verbose --parallel=2 ./out/ /public_html/
+          mirror -R --verbose --parallel=2 ./out/ public_html/
           bye
           EOF
