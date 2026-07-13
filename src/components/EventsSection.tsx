@@ -38,8 +38,8 @@ function ClipReveal({ children, delay = 0, className = '' }: { children: React.R
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
   return (
     <motion.div ref={ref}
-      initial={{ clipPath: 'inset(0 100% 0 0)' }}
-      animate={inView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+      initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+      animate={inView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
       transition={{ duration: 1.4, delay, ease: EASE }}
       className={className}
     >{children}</motion.div>

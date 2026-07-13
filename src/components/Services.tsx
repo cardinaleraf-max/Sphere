@@ -82,8 +82,8 @@ export default function Services() {
               </motion.span>
               <div className="overflow-hidden pb-6 -mb-6">
                 <motion.h2
-                  initial={{ clipPath: 'inset(0 100% 0 0)' }}
-                  animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+                  initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+                  animate={headInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
                   transition={{ duration: 1.4, ease: EASE }}
                   className="font-display italic font-light text-[clamp(2.5rem,7vw,6rem)] leading-[1.15] text-ink"
                 >

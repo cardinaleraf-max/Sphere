@@ -68,8 +68,8 @@ export default function Team() {
         <div ref={headRef} className="mb-[clamp(4rem,8vw,8rem)] max-w-3xl">
           <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
-              initial={{ clipPath: 'inset(0 100% 0 0)' }}
-              animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+              initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+              animate={headInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
               transition={{ duration: 1.6, ease: EASE }}
               className="font-display italic font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.15] text-ink"
             >
@@ -78,8 +78,8 @@ export default function Team() {
           </div>
           <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
-              initial={{ clipPath: 'inset(0 100% 0 0)' }}
-              animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+              initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+              animate={headInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
               transition={{ duration: 1.6, delay: 0.1, ease: EASE }}
               className="font-display font-light text-[clamp(2.2rem,5vw,5rem)] leading-[1.15] text-[#B8922C]"
             >

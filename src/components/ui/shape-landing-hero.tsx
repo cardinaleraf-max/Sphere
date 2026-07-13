@@ -18,8 +18,8 @@ function ClipLine({
   return (
     <div className="overflow-hidden pb-6 -mb-6">
       <motion.div
-        initial={{ clipPath: "inset(0 100% 0 0)" }}
-        animate={{ clipPath: "inset(0 0% 0 0)" }}
+        initial={{ clipPath: "inset(-0.2em 100% -0.35em 0)" }}
+        animate={{ clipPath: "inset(-0.2em 0% -0.35em 0)" }}
         transition={{ duration: 1.6, delay, ease: EASE }}
         className={className}
       >

@@ -19,8 +19,8 @@
 
 /* ── Keyframes ── */
 @keyframes clipX {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0%   0 0); }
+  from { clip-path: inset(-0.2em 100% -0.35em 0); }
+  to   { clip-path: inset(-0.2em 0%   -0.35em 0); }
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }

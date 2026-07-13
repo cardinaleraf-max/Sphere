@@ -61,8 +61,8 @@ export default function Concierge() {
         {/* Full-width quote */}
         <div ref={quoteRef} className="mb-[clamp(4rem,8vw,8rem)]">
           <motion.h2
-            initial={{ clipPath: 'inset(0 100% 0 0)' }}
-            animate={quoteInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+            initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+            animate={quoteInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
             transition={{ duration: 1.8, ease: EASE }}
             className="font-display italic font-light text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.15] pb-6 -mb-6 text-ink max-w-4xl"
           >

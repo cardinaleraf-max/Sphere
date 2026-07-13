@@ -69,8 +69,8 @@ export default function Contact() {
         <div ref={headRef} className="mb-[clamp(4rem,8vw,8rem)]">
           <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
-              initial={{ clipPath: 'inset(0 100% 0 0)' }}
-              animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+              initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+              animate={headInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
               transition={{ duration: 1.6, ease: EASE }}
               className="font-display italic font-light text-[clamp(2.5rem,7vw,7rem)] leading-[1.15] text-ivory"
             >
@@ -79,8 +79,8 @@ export default function Contact() {
           </div>
           <div className="overflow-hidden pb-6 -mb-6">
             <motion.h2
-              initial={{ clipPath: 'inset(0 100% 0 0)' }}
-              animate={headInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+              initial={{ clipPath: 'inset(-0.2em 100% -0.35em 0)' }}
+              animate={headInView ? { clipPath: 'inset(-0.2em 0% -0.35em 0)' } : {}}
               transition={{ duration: 1.6, delay: 0.1, ease: EASE }}
               className="font-display font-light text-[clamp(2.5rem,7vw,7rem)] leading-[1.15] text-[#B8922C]"
             >
