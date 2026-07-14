@@ -6,6 +6,7 @@ import EventsSection from '@/components/EventsSection'
 import Concierge from '@/components/Concierge'
 // import Team from '@/components/Team' // Sezione Team nascosta — riattivare in futuro
 import News from '@/components/News'
+import Stats from '@/components/Stats'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import CookieBanner from '@/components/CookieBanner'
@@ -23,6 +24,7 @@ export default function Home() {
         <Concierge />
         {/* <Team /> Sezione Team nascosta — riattivare in futuro */}
         <News />
+        <Stats />
         <Contact />
       </main>
       <Footer />

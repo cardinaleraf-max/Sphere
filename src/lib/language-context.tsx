@@ -94,6 +94,10 @@ interface Dictionary {
     emailColLabel: string
     followLabel: string
   }
+  stats: {
+    label: string
+    items: string[]
+  }
   cookie: {
     ariaLabel: string
     messagePrefix: string
@@ -167,12 +171,12 @@ export const translations: Record<Locale, Dictionary> = {
     about: {
       label: 'About',
       intro:
-        'S.P.H.E.R.E. has no edges, no weak points, and no hierarchy. It represents completeness, balance, and unity: values that define how we operate and how we serve. Everything within a sphere is connected, and every connection matters.',
+        'Saudi Arabia’s multidisciplinary experience partner for governments, luxury brands and visionary organizations. Every project is designed with responsibility, sustainability and long-term impact in mind.',
       philosophyLabel: 'Our Philosophy',
       philosophyLine1: 'Where Hospitality',
       philosophyLine2: 'Meets Influence.',
       philosophyBody:
-        'We curate exceptional experiences for discerning individuals, global brands and visionary organizations. Combining operational excellence with thoughtful design, we transform every interaction into a meaningful experience.',
+        'Strategic thinking shapes every project with purpose. Creative excellence transforms ideas into unforgettable experiences, while flawless delivery ensures precision in every detail. Rooted in human-centered hospitality, we put people first and earn the trust of governments, luxury brands, and visionary organizations.',
       heritageLabel: 'Heritage',
       heritageLine1: 'Elegance Crafted',
       heritageLine2: 'in Italy, Rooted',
@@ -289,6 +293,17 @@ export const translations: Record<Locale, Dictionary> = {
       officeValue: 'Riyadh, Kingdom of Saudi Arabia',
       emailColLabel: 'Email',
       followLabel: 'Follow',
+    },
+    stats: {
+      label: 'By the Numbers',
+      items: [
+        'Projects Delivered',
+        'Government & Corporate Clients',
+        'Industries Served',
+        'Guests Welcomed',
+        'Countries',
+        'Client Retention',
+      ],
     },
     cookie: {
       ariaLabel: 'Cookie consent',
@@ -501,6 +516,17 @@ export const translations: Record<Locale, Dictionary> = {
       officeValue: 'الرياض، المملكة العربية السعودية',
       emailColLabel: 'البريد الإلكتروني',
       followLabel: 'تابعونا',
+    },
+    stats: {
+      label: 'بالأرقام',
+      items: [
+        'مشروع منجز',
+        'عملاء حكوميون ومؤسسيون',
+        'قطاعات نخدمها',
+        'ضيف استقبلناهم',
+        'دولة',
+        'معدل الاحتفاظ بالعملاء',
+      ],
     },
     cookie: {
       ariaLabel: 'إشعار ملفات تعريف الارتباط',
