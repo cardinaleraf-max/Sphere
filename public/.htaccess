@@ -1,0 +1,19 @@
+# Regole di cache per l'export statico servito da Apache/LiteSpeed.
+# Obiettivo: i documenti HTML non devono MAI essere serviti stantii (così le
+# modifiche compaiono subito), mentre JS/CSS/immagini possono restare in cache.
+
+<IfModule mod_headers.c>
+  # HTML (home, /privacy/, ...): il browser rivalida sempre col server.
+  # Con "no-cache" la copia viene tenuta ma usata solo dopo un 304 Not Modified,
+  # quindi niente più versioni vecchie viste in produzione.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Asset statici: cache di 1 giorno. Gli aggiornamenti (es. una foto sostituita)
+  # compaiono comunque entro 24h; i bundle di Next hanno l'hash nel nome, quindi
+  # un nome nuovo = download immediato.
+  <FilesMatch "\.(js|mjs|css|woff2?|ttf|otf|eot|svg|png|jpe?g|gif|webp|avif|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
