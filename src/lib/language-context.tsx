@@ -255,11 +255,11 @@ export const translations: Record<Locale, Dictionary> = {
             'The Kingdom launches its first ultra-luxury sleeper train — carrying 66 guests across 1,300km of desert in a journey devoted to slow travel and immersive cultural heritage.',
         },
         {
-          date: 'April 2025',
-          category: 'Insight',
-          title: 'The Art of Invisible Orchestration',
+          date: 'August 2026',
+          category: 'Press',
+          title: "Inside Salma Tahri's World of Arabian Horses, Moroccan Heritage and Modest Fashion",
           excerpt:
-            'What makes a truly exceptional event is rarely what guests notice — it is everything they never had to think about. An exploration of our philosophy.',
+            'After galloping with Madonna to celebrate the new year, a North African talent was propelled to the world stage. Shielding the Arabian horse and Islamic attire, Salma Tahri is Morocco\u2019s latest cultural ambassador.',
         },
         {
           date: 'February 2025',
@@ -478,11 +478,11 @@ export const translations: Record<Locale, Dictionary> = {
             'تُطلق المملكة أول قطار نوم فائق الفخامة، ينقل 66 ضيفاً عبر 1300 كيلومتر من الصحراء في رحلة مكرّسة للسفر البطيء والتراث الثقافي الغامر.',
         },
         {
-          date: 'أبريل 2025',
-          category: 'رؤى',
-          title: 'فن التنسيق غير المرئي',
+          date: 'أغسطس 2026',
+          category: 'صحافة',
+          title: 'داخل عالم سلمى الطاهري: الخيول العربية والتراث المغربي والأزياء المحتشمة',
           excerpt:
-            'ما يجعل الفعالية استثنائية حقاً نادراً ما يكون ما يلاحظه الضيوف، بل كل ما لم يضطروا للتفكير فيه إطلاقاً. استكشاف لفلسفتنا.',
+            'بعد أن امتطت جوادها إلى جانب مادونا احتفالاً بالعام الجديد، انطلقت الموهبة المغاربية إلى العالمية. سلمى الطاهري، حاميةُ الجواد العربي واللباس الإسلامي، هي سفيرة المغرب الثقافية الجديدة.',
         },
         {
           date: 'فبراير 2025',

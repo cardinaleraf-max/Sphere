@@ -13,8 +13,8 @@ const articleMeta = [
   },
   {
     idx: '02',
-    img: '/images/concierge_main.jpg',
-    href: '#',
+    img: '/images/salma-tahri.jpg',
+    href: 'https://www.voguearabia.com/article/salma-tahri-arabian-horses-moroccan-heritage-modest-fashion',
   },
   {
     idx: '03',
