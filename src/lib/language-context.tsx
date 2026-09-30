@@ -262,11 +262,11 @@ export const translations: Record<Locale, Dictionary> = {
             'After galloping with Madonna to celebrate the new year, a North African talent was propelled to the world stage. Shielding the Arabian horse and Islamic attire, Salma Tahri is Morocco\u2019s latest cultural ambassador.',
         },
         {
-          date: 'February 2025',
+          date: 'September 2023',
           category: 'Press',
-          title: "Sphere Named Among Riyadh's Premier Hospitality Firms",
+          title: 'Acquera Yachting Announces New Office in the Middle East',
           excerpt:
-            'Recognised for its distinctive approach to luxury events and concierge services, Sphere continues to set a new benchmark for elite hospitality in the Kingdom.',
+            'Headquartered in Dubai, Acquera Yachting Middle East becomes the hub for yacht services across Saudi Arabia, the Emirates, Qatar, Oman, Bahrain and Egypt, meeting the region\u2019s growing demand.',
         },
       ],
     },
@@ -485,11 +485,11 @@ export const translations: Record<Locale, Dictionary> = {
             'بعد أن امتطت جوادها إلى جانب مادونا احتفالاً بالعام الجديد، انطلقت الموهبة المغاربية إلى العالمية. سلمى الطاهري، حاميةُ الجواد العربي واللباس الإسلامي، هي سفيرة المغرب الثقافية الجديدة.',
         },
         {
-          date: 'فبراير 2025',
+          date: 'سبتمبر 2023',
           category: 'صحافة',
-          title: "سفير ضمن أبرز شركات الضيافة في الرياض",
+          title: 'أكويرا لليخوت تعلن عن مكتب جديد في الشرق الأوسط',
           excerpt:
-            'تقديراً لنهجها المتميز في الفعاليات الفاخرة وخدمات الكونسيرج، يواصل سفير ترسيخ معيار جديد للضيافة الراقية في المملكة.',
+            'من مقرها الرئيسي في دبي، تصبح أكويرا لليخوت الشرق الأوسط المركز الإقليمي لخدمات اليخوت في السعودية والإمارات وقطر وعُمان والبحرين ومصر، تلبيةً للطلب المتزايد في المنطقة.',
         },
       ],
     },

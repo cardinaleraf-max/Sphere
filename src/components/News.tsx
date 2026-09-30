@@ -18,8 +18,8 @@ const articleMeta = [
   },
   {
     idx: '03',
-    img: '/images/about_heritage.jpg',
-    href: '#',
+    img: '/images/acquera-dubai-harbour.jpg',
+    href: 'https://www.superyachttimes.com/yacht-news/acquera-yachting-middle-east-office',
   },
 ]
 
